@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;}
+</style>
+</helmet>
+
+<div style="font-family:'Poppins',sans-serif;font-weight:300;color:#41503A;background:#FCF8F1;min-height:100vh;line-height:1.7;">
+
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(252,248,241,.9);backdrop-filter:blur(10px);border-bottom:1px solid #E7DCC6;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 30px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="Home.dc.html" style="font-family:'Playfair Display',serif;font-weight:700;font-size:21px;color:#41503A;text-decoration:none;display:flex;align-items:center;gap:12px;white-space:nowrap;">
+        Blitz <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;">&amp;</span> Glitz
+        <span style="font-family:'Poppins',sans-serif;font-weight:400;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#93A678;border-left:1px solid #E7DCC6;padding-left:12px;">Committee Hub</span>
+      </a>
+      <div style="display:flex;gap:22px;font-size:13px;font-weight:400;letter-spacing:.02em;align-items:center;">
+        <a href="Home.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Home</a>
+        <a href="Event-and-Venue.dc.html" style="color:#6F8556;text-decoration:none;border-bottom:1px solid #6F8556;padding-bottom:2px;">Event &amp; Venue</a>
+        <a href="Food-and-Drinks.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Food &amp; Drinks</a>
+        <a href="Swag-Bags.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Swag Bags</a>
+        <a href="Sponsors-and-Vendors.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Sponsors &amp; Vendors</a>
+        <a href="Planning.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Planning</a>
+      </div>
+    </div>
+  </nav>
+
+  <header style="padding:74px 30px 60px;background:linear-gradient(rgba(252,248,241,.84),rgba(252,248,241,.92)),url('assets/floral.jpeg');background-size:auto, 520px;background-position:center;border-bottom:1px solid #E7DCC6;">
+    <div style="max-width:1060px;margin:0 auto;">
+      <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#93A678;margin:0 0 14px;">Section 01 · The Essentials</p>
+      <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:56px;line-height:1.02;margin:0;color:#41503A;">Event <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;">&amp;</span> Venue</h1>
+      <p style="max-width:600px;margin:16px 0 0;font-size:15.5px;color:#75806A;">The big picture — what we're throwing, the look and feel, and everything we know about the space at One Preston.</p>
+    </div>
+  </header>
+
+  <section style="max-width:1060px;margin:0 auto;padding:60px 30px 10px;">
+    <div style="text-align:center;margin-bottom:34px;">
+      <p style="letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">The facts</p>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:30px;margin:0;color:#41503A;">Event overview</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#fff;border:1px solid #E7DCC6;border-radius:6px;overflow:hidden;box-shadow:0 12px 34px rgba(90,110,70,.07);">
+      <sc-for list="{{ overview }}" as="o" hint-placeholder-count="9">
+        <div style="padding:24px 26px;border-right:1px solid #F0E7D6;border-bottom:1px solid #F0E7D6;">
+          <div style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#93A678;margin-bottom:6px;">{{ o.k }}</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:18px;color:#41503A;line-height:1.25;">{{ o.v }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;max-width:1060px;margin:0 auto;padding:54px 30px 0;">
+    <div style="height:1px;flex:1;background:linear-gradient(90deg,transparent,#CFD8BD);"></div>
+    <span style="color:#9C854A;font-size:14px;letter-spacing:.3em;">✦</span>
+    <div style="height:1px;flex:1;background:linear-gradient(90deg,#CFD8BD,transparent);"></div>
+  </div>
+
+  <section style="max-width:1060px;margin:0 auto;padding:40px 30px 10px;">
+    <div style="border:1px solid #C7D2B4;border-radius:6px;padding:40px 40px 36px;box-shadow:0 14px 36px rgba(90,110,70,.1);background:linear-gradient(rgba(252,248,241,.8),rgba(252,248,241,.88)),url('assets/floral.jpeg');background-size:auto, 480px;">
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:38px;align-items:center;">
+        <div>
+          <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;font-weight:400;color:#93A678;margin:0 0 8px;">Theme &amp; Look</p>
+          <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:34px;margin:0 0 12px;color:#41503A;">Soft, watercolor &amp; glam.</h2>
+          <p style="font-size:14.5px;color:#5e6552;margin:0 0 16px;">Butter yellow and blush florals with champagne table runners, set against soft greens. Vintage gold and a touch of silver on signage, balloons, and tableware. It plays beautifully against the venue's white-washed wood and gold chairs.</p>
+          <p style="font-size:13.5px;color:#5e6552;margin:0;background:rgba(255,255,255,.72);border:1px solid #E7DCC6;border-radius:6px;padding:14px 16px;"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#41503A;">Name play —</span> "Blitz" (football) + "Glitz" (glamour). Keep the glam front and center and the football reference light.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:13px;">
+          <sc-for list="{{ palette }}" as="c" hint-placeholder-count="6">
+            <div style="text-align:center;">
+              <div style="height:72px;border-radius:4px;background:{{ c.hex }};border:1px solid rgba(90,110,70,.18);"></div>
+              <div style="font-size:11px;font-weight:500;color:#41503A;margin-top:7px;">{{ c.name }}</div>
+              <div style="font-size:9.5px;color:#A99C86;">{{ c.hex }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1060px;margin:0 auto;padding:54px 30px 10px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+      <div>
+        <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">One Preston · Gunter, TX</p>
+        <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 4px;color:#41503A;">Venue notes</h2>
+        <p style="font-size:13.5px;color:#75806A;margin:0 0 22px;">Naturally elegant; minimal decor needed.</p>
+        <div style="display:flex;flex-direction:column;">
+          <sc-for list="{{ venue }}" as="v" hint-placeholder-count="6">
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:15px 0;border-bottom:1px solid #EFE6D4;">
+              <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#9C854A;flex:none;line-height:1.2;width:22px;">{{ v.n }}</span>
+              <span style="font-size:14px;color:#5e6552;">{{ v.text }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">Across the evening</p>
+        <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 4px;color:#41503A;">Activities &amp; components</h2>
+        <p style="font-size:13.5px;color:#75806A;margin:0 0 22px;">What's happening over the three-hour night.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ activities }}" as="a" hint-placeholder-count="6">
+            <div style="background:#fff;border:1px solid #E7DCC6;border-radius:6px;padding:16px 18px;border-left:3px solid {{ a.accent }};box-shadow:0 6px 18px rgba(90,110,70,.05);">
+              <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:16.5px;color:#41503A;margin-bottom:3px;">{{ a.title }}</div>
+              <div style="font-size:13px;color:#75806A;">{{ a.text }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1060px;margin:0 auto;padding:46px 30px 10px;">
+    <div style="background:#3A4733;border-radius:6px;padding:34px 38px;color:#E7E8DB;">
+      <p style="letter-spacing:.28em;text-transform:uppercase;font-size:10.5px;font-weight:400;color:#C3AE7A;margin:0 0 10px;">Layout to figure out</p>
+      <p style="font-size:15px;margin:0;color:#E7E8DB;line-height:1.7;">Where dinner seating vs. vendor tables vs. bar/drinks vs. the raffle &amp; prize display will go. The open floor plan flexes between seated dinner, vendor booths, and mingling — plus the loft, the console/bar-height surface along one wall, and the farmhouse table under the staircase (great for check-in, swag bags, or a drink station).</p>
+    </div>
+  </section>
+
+  <div style="height:8px;margin-top:50px;background:url('assets/stripes-butter.jpeg');background-size:auto 8px;"></div>
+  <footer style="background:#3A4733;color:#E7E8DB;text-align:center;padding:40px 22px;">
+    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;">Blitz <span style="color:#C3AE7A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
+    <p style="margin:10px 0 0;font-size:13px;color:#B4BBA4;"><a href="Home.dc.html" style="color:#C3AE7A;text-decoration:none;">← Back to the hub</a></p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      overview: [
+        { k: "Event name", v: "Blitz and Glitz" },
+        { k: "Type", v: "Moms Night Out fundraiser" },
+        { k: "Audience", v: "Local Gunter-area moms" },
+        { k: "Beneficiary", v: "Community-driven (team benefits)" },
+        { k: "Venue", v: "One Preston — Gunter, TX" },
+        { k: "Date", v: "Sunday, August 23, 2026" },
+        { k: "Run time", v: "3-hour event · 8-hr setup" },
+        { k: "Catering", v: "Camilla's (donating)" },
+        { k: "Ticket price", v: "$100 each" },
+      ],
+      palette: [
+        { name: "Butter", hex: "#F2DFA0" },
+        { name: "Champagne", hex: "#EFE3CB" },
+        { name: "Blush", hex: "#F2D4D8" },
+        { name: "Silver", hex: "#B3B5B7" },
+        { name: "Old Gold", hex: "#9C854A" },
+        { name: "Forest", hex: "#41503A" },
+      ],
+      venue: [
+        { n: "I", text: "White-washed barn-style hall with vaulted wood-beam ceilings and crystal chandeliers." },
+        { n: "II", text: "Gold chiavari chairs and round tables with white linens already in place." },
+        { n: "III", text: "Large windows, lots of natural light, and polished concrete floors." },
+        { n: "IV", text: "A loft / upper level overlooking the main hall." },
+        { n: "V", text: "Built-in console/bar-height surface along one wall; farmhouse table under the staircase." },
+        { n: "VI", text: "Open floor plan — flexes between seated dinner, vendor booths, and mingling." },
+      ],
+      activities: [
+        { title: "Dinner & drinks", accent: "#93A678", text: "Camilla's donating Mexican food with appetizers, water, and tea." },
+        { title: "Bar (venue rules)", accent: "#D88C93", text: "Must use One Preston's bartenders. Beer, wine & champagne only — no liquor." },
+        { title: "Swag bags", accent: "#9C854A", text: "Canvas tote with a custom patch for every attendee, filled with vendor & sponsor goodies." },
+        { title: "Door prizes", accent: "#93A678", text: "Drawn throughout the night." },
+        { title: "Vendors", accent: "#D88C93", text: "Local vendor booths (fee structure TBD)." },
+        { title: "Raffles", accent: "#9C854A", text: "Raffle baskets & prizes with ticket sales — run through GiveSmart." },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

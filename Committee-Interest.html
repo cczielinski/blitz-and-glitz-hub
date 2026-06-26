@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blitz &amp; Glitz — Join the Committee</title>
+
+<!--
+========================================================================
+  SETUP — READ BEFORE SENDING (then delete this comment)
+========================================================================
+  This form needs a free form-handler to receive responses by email /
+  spreadsheet. Easiest option: Formspree (https://formspree.io).
+
+  1. Create a free Formspree account and a new form.
+  2. Copy your form endpoint (looks like https://formspree.io/f/abcdwxyz).
+  3. Replace YOUR_FORM_ID below in the <form action="..."> tag.
+  4. Host this single .html file (or use Formspree's hosted page) and
+     share the link with your community. Responses arrive at your email
+     + Formspree dashboard.
+
+  No-code alternative: rebuild the same fields as a Google Form instead.
+========================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap');
+
+  :root{
+    --cream:#FFFFFF;
+    --white:#FFFFFF;
+    --ink:#1A3A5C;
+    --ink-soft:#5A7FA8;
+    --sage:#4A80BE;
+    --sage-deep:#2D6BB0;
+    --sage-bg:#EBF3FB;
+    --sage-border:#A8CCE8;
+    --gold:#9C854A;
+    --gold-soft:#C3AE7A;
+    --gold-deep:#7C682F;
+    --blush:#F2D4D8;
+    --rose:#D88C93;
+    --butter:#F2DFA0;
+    --champagne:#EFE3CB;
+    --border:#C8DCF0;
+    --border-lt:#DDE9F5;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;font-weight:300;
+    color:var(--ink);line-height:1.7;
+    background:
+      radial-gradient(circle at 16% 12%, rgba(242,212,216,.5), transparent 42%),
+      radial-gradient(circle at 86% 16%, rgba(242,223,160,.45), transparent 44%),
+      radial-gradient(circle at 78% 88%, rgba(74,128,190,.28), transparent 46%),
+      var(--cream);
+    background-attachment:fixed;
+    padding:40px 18px;
+  }
+
+  .card{
+    max-width:760px;margin:0 auto;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:0 22px 56px rgba(26,58,92,.14);
+    overflow:hidden;
+  }
+
+  .hero{
+    text-align:center;padding:54px 36px 42px;
+    border-bottom:1px solid var(--border);
+    background:
+      radial-gradient(circle at 22% 26%, rgba(242,212,216,.45), transparent 55%),
+      radial-gradient(circle at 80% 22%, rgba(242,223,160,.45), transparent 55%),
+      linear-gradient(180deg,#FFFFFF 0%,var(--white) 100%);
+  }
+  .eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:11px;font-weight:400;color:var(--sage);margin:0 0 14px;}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:46px;line-height:1.02;margin:0;color:var(--ink);}
+  .hero h1 .amp{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;}
+  .hero .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:21px;color:var(--ink-soft);margin:10px 0 0;}
+  .hero .sub{margin:16px auto 0;max-width:540px;font-size:14.5px;color:var(--ink-soft);}
+  .facts{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:22px;}
+  .facts span{
+    background:var(--white);border:1px solid var(--border);
+    color:var(--ink);padding:6px 15px;border-radius:999px;
+    font-size:12px;font-weight:400;letter-spacing:.02em;
+  }
+
+  form{padding:36px 38px 42px;}
+
+  .section{margin:0 0 30px;}
+  .section h2{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:20px;
+    color:var(--ink);margin:0 0 4px;display:flex;align-items:center;gap:12px;
+  }
+  .section h2 .num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+    font-size:24px;color:var(--gold);flex:none;width:24px;
+  }
+  .section .hint{font-size:13px;color:var(--ink-soft);margin:0 0 18px 36px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .full{grid-column:1 / -1;}
+
+  label{display:block;font-size:13px;font-weight:400;margin:0 0 6px;color:var(--ink);}
+  .req{color:var(--rose);}
+
+  input[type=text],input[type=email],input[type=tel],select,textarea{
+    width:100%;padding:11px 13px;
+    border:1px solid var(--border);border-radius:6px;
+    font-family:'Poppins';font-weight:300;font-size:14px;color:var(--ink);
+    background:var(--white);
+    transition:border-color .15s, box-shadow .15s;
+  }
+  input::placeholder,textarea::placeholder{color:#B4AE9C;}
+  input:focus,select:focus,textarea:focus{
+    outline:none;border-color:var(--sage);
+    box-shadow:0 0 0 3px rgba(74,128,190,.16);
+  }
+  textarea{resize:vertical;min-height:84px;}
+
+  .choice{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px;}
+  .choice label{
+    display:flex;align-items:center;gap:9px;
+    background:#FFFFFF;border:1px solid var(--border);
+    border-radius:6px;padding:9px 14px;margin:0;
+    font-weight:300;cursor:pointer;font-size:13px;
+    transition:background .15s,border-color .15s;
+  }
+  .choice label:hover{border-color:var(--sage);background:var(--sage-bg);}
+  .choice input{accent-color:var(--sage-deep);width:16px;height:16px;margin:0;}
+
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);margin:4px 0 28px;}
+
+  .note{
+    background:var(--sage-bg);border:1px solid var(--sage-border);
+    border-radius:6px;padding:13px 16px;font-size:13px;color:#3D5A7A;
+    margin:0 0 18px 36px;
+  }
+  .note .orn{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:16px;}
+
+  .submit-wrap{text-align:center;margin-top:18px;}
+  button{
+    font-family:'Playfair Display',serif;font-size:16px;font-weight:600;letter-spacing:.03em;
+    color:var(--cream);cursor:pointer;
+    background:var(--ink);border:none;border-radius:999px;
+    padding:15px 56px;
+    box-shadow:0 12px 28px rgba(26,58,92,.28);
+    transition:transform .12s, box-shadow .12s, background .15s;
+  }
+  button:hover{transform:translateY(-2px);background:#163166;box-shadow:0 16px 32px rgba(26,58,92,.34);}
+  .fineprint{font-size:12px;color:var(--ink-soft);margin-top:16px;}
+
+  .stripe{height:8px;background:repeating-linear-gradient(90deg,
+      var(--butter) 0 14px, var(--white) 14px 20px, var(--blush) 20px 34px, var(--white) 34px 40px);}
+
+  footer{
+    text-align:center;padding:24px;font-size:12px;color:#8EB0D0;
+    background:#0F2A4A;
+  }
+  footer .fb{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#E2ECF8;}
+  footer .fb .amp{color:var(--gold-soft);font-style:italic;font-family:'Cormorant Garamond',serif;}
+
+  @media(max-width:560px){
+    .hero h1{font-size:36px;}
+    .grid{grid-template-columns:1fr;}
+    form{padding:28px 22px 34px;}
+    .section .hint,.note{margin-left:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="hero">
+    <p class="eyebrow">Join the Committee</p>
+    <h1>Blitz <span class="amp">&amp;</span> Glitz</h1>
+    <p class="tag">Help us throw a beautiful night for our community.</p>
+    <p class="sub">We're building the team behind our Moms Night Out fundraiser — and we'd love your help. Tell us a little about you and where you'd like to pitch in.</p>
+    <div class="facts">
+      <span>Sunday, August 23, 2026</span>
+      <span>One Preston · Gunter, TX</span>
+      <span>A community fundraiser</span>
+    </div>
+  </div>
+
+  <!-- Replace YOUR_FORM_ID with your Formspree endpoint (see setup note at top of file) -->
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+    <!-- ============ SECTION 1 ============ -->
+    <div class="section">
+      <h2><span class="num">I</span> About You</h2>
+      <p class="hint">So we know who to reach out to.</p>
+      <div class="grid">
+        <div>
+          <label>Full name <span class="req">*</span></label>
+          <input type="text" name="name" required>
+        </div>
+        <div>
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" required>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" name="phone">
+        </div>
+        <div>
+          <label>Best way to reach you</label>
+          <select name="contact_pref">
+            <option value="">— Select —</option>
+            <option>Email</option>
+            <option>Text</option>
+            <option>Phone call</option>
+          </select>
+        </div>
+        <div class="full">
+          <label>Your connection to Gunter</label>
+          <div class="choice">
+            <label><input type="checkbox" name="connection" value="Mom"> Mom</label>
+            <label><input type="checkbox" name="connection" value="Alumni"> Alumni</label>
+            <label><input type="checkbox" name="connection" value="Community member"> Community member</label>
+            <label><input type="checkbox" name="connection" value="Local business owner"> Local business owner</label>
+            <label><input type="checkbox" name="connection" value="Booster / supporter"> Booster / supporter</label>
+          </div>
+        </div>
+        <div class="full">
+          <label>Student grade level(s), if applicable</label>
+          <input type="text" name="grade_levels" placeholder="e.g., 9th &amp; 11th">
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============ SECTION 2 ============ -->
+    <div class="section">
+      <h2><span class="num">II</span> How You'd Like to Help</h2>
+      <p class="hint">Check anything that interests you — no commitment required yet.</p>
+      <div class="grid">
+        <div class="full">
+          <label>Committee roles &amp; areas</label>
+          <div class="choice">
+            <label><input type="checkbox" name="roles" value="Event lead / chair"> Event lead / chair</label>
+            <label><input type="checkbox" name="roles" value="Vendor coordinator"> Vendor coordinator</label>
+            <label><input type="checkbox" name="roles" value="Sponsorship lead"> Sponsorship lead</label>
+            <label><input type="checkbox" name="roles" value="Swag bags (sourcing & assembly)"> Swag bags</label>
+            <label><input type="checkbox" name="roles" value="Raffle & prizes"> Raffle &amp; prizes</label>
+            <label><input type="checkbox" name="roles" value="Marketing & social"> Marketing &amp; social</label>
+            <label><input type="checkbox" name="roles" value="GiveSmart / tech"> GiveSmart / tech</label>
+            <label><input type="checkbox" name="roles" value="Decor & setup"> Decor &amp; setup</label>
+            <label><input type="checkbox" name="roles" value="Day-of volunteer"> Day-of volunteer</label>
+            <label><input type="checkbox" name="roles" value="Treasurer / finance"> Treasurer / finance</label>
+            <label><input type="checkbox" name="roles" value="Wherever I'm needed"> Wherever I'm needed</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============ SECTION 3 ============ -->
+    <div class="section">
+      <h2><span class="num">III</span> Availability</h2>
+      <p class="hint">A rough sense of when you can lend a hand.</p>
+      <div class="grid">
+        <div class="full">
+          <label>I can help with…</label>
+          <div class="choice">
+            <label><input type="checkbox" name="availability" value="Planning meetings"> Planning meetings</label>
+            <label><input type="checkbox" name="availability" value="Setup (day before / day of)"> Setup</label>
+            <label><input type="checkbox" name="availability" value="During the event"> During the event</label>
+            <label><input type="checkbox" name="availability" value="Teardown / cleanup"> Teardown</label>
+            <label><input type="checkbox" name="availability" value="Donate items / baskets"> Donate items</label>
+            <label><input type="checkbox" name="availability" value="Recruit sponsors / vendors"> Recruit sponsors</label>
+          </div>
+        </div>
+        <div class="full">
+          <label>About how much time can you give?</label>
+          <select name="time_commitment">
+            <option value="">— Select —</option>
+            <option>A little — day-of only</option>
+            <option>Some — a few hours here and there</option>
+            <option>A lot — I'd like a lead role</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============ SECTION 4 ============ -->
+    <div class="section">
+      <h2><span class="num">IV</span> Skills &amp; Connections</h2>
+      <div class="note"><span class="orn">✦</span> &nbsp;Have a talent or a local connection that could help — design, photography, baking, a business contact, a venue, a donation? Tell us below.</div>
+      <div class="grid">
+        <div class="full">
+          <label>Skills, talents, or connections you'd bring</label>
+          <textarea name="skills" placeholder="e.g., graphic design, social media, florals, local business contacts…"></textarea>
+        </div>
+        <div class="full">
+          <label>Anything else you'd like us to know?</label>
+          <textarea name="other_notes"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="submit">Count Me In ✦</button>
+      <p class="fineprint">Thank you for raising your hand! We'll follow up by email to share next steps and our first meeting.</p>
+    </div>
+
+  </form>
+
+  <div class="stripe"></div>
+  <footer>
+    <div class="fb">Blitz <span class="amp">&amp;</span> Glitz</div>
+    A Community Moms Night Out · Sunday, August 23, 2026 · One Preston, Gunter, TX<br>
+    Questions? Email <strong style="color:#C3AE7A;">chris@proadink.com</strong>
+  </footer>
+
+</div>
+
+</body>
+</html>

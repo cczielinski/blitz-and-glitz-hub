@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;}
+</style>
+</helmet>
+
+<div style="font-family:'Poppins',sans-serif;font-weight:300;color:#41503A;background:#FCF8F1;min-height:100vh;line-height:1.7;">
+
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(252,248,241,.9);backdrop-filter:blur(10px);border-bottom:1px solid #E7DCC6;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 30px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="Home.dc.html" style="font-family:'Playfair Display',serif;font-weight:700;font-size:21px;color:#41503A;text-decoration:none;display:flex;align-items:center;gap:12px;white-space:nowrap;">
+        Blitz <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;">&amp;</span> Glitz
+        <span style="font-family:'Poppins',sans-serif;font-weight:400;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#93A678;border-left:1px solid #E7DCC6;padding-left:12px;">Committee Hub</span>
+      </a>
+      <div style="display:flex;gap:22px;font-size:13px;font-weight:400;letter-spacing:.02em;align-items:center;">
+        <a href="Home.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Home</a>
+        <a href="Event-and-Venue.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Event &amp; Venue</a>
+        <a href="Food-and-Drinks.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Food &amp; Drinks</a>
+        <a href="Swag-Bags.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Swag Bags</a>
+        <a href="Sponsors-and-Vendors.dc.html" style="color:#6c7360;text-decoration:none;" style-hover="color:#6F8556;">Sponsors &amp; Vendors</a>
+        <a href="Planning.dc.html" style="color:#6F8556;text-decoration:none;border-bottom:1px solid #6F8556;padding-bottom:2px;">Planning</a>
+      </div>
+    </div>
+  </nav>
+
+  <header style="padding:74px 30px 60px;background:linear-gradient(rgba(252,248,241,.84),rgba(252,248,241,.92)),url('assets/floral.jpeg');background-size:auto, 520px;background-position:center;border-bottom:1px solid #E7DCC6;">
+    <div style="max-width:1060px;margin:0 auto;">
+      <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#93A678;margin:0 0 14px;">Section 05 · Logistics</p>
+      <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:56px;line-height:1.02;margin:0;color:#41503A;">Planning</h1>
+      <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#75806A;">The full checklist, the run-of-show, and committee roles. Tick items off as you go — your progress is saved on this device.</p>
+    </div>
+  </header>
+
+  <section style="max-width:1060px;margin:0 auto;padding:46px 30px 6px;">
+    <div style="background:#fff;border:1px solid #E7DCC6;border-radius:6px;padding:24px 30px;box-shadow:0 10px 30px rgba(90,110,70,.06);display:flex;align-items:center;gap:26px;">
+      <div style="flex:none;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:34px;color:#6F8556;line-height:1;">{{ pct }}</div>
+        <div style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#93A678;margin-top:3px;">Complete</div>
+      </div>
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#75806A;margin-bottom:8px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#41503A;">{{ doneCount }} of {{ totalCount }} tasks done</span>
+          <span onClick="{{ reset }}" style="cursor:pointer;color:#9C854A;letter-spacing:.04em;">Reset checklist</span>
+        </div>
+        <div style="height:8px;border-radius:999px;background:#EEE7D6;overflow:hidden;">
+          <div style="height:100%;border-radius:999px;background:linear-gradient(90deg,#93A678,#6F8556);width:{{ pct }};transition:width .3s;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1060px;margin:0 auto;padding:30px 30px 6px;">
+    <div style="columns:2;column-gap:24px;">
+      <sc-for list="{{ groups }}" as="grp" hint-placeholder-count="9">
+        <div style="break-inside:avoid;background:#fff;border:1px solid #E7DCC6;border-radius:6px;padding:22px 24px 16px;margin-bottom:24px;box-shadow:0 8px 24px rgba(90,110,70,.05);border-top:3px solid {{ grp.accent }};display:inline-block;width:100%;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
+            <h3 style="font-family:'Playfair Display',serif;font-weight:600;font-size:18px;margin:0;color:#41503A;">{{ grp.title }}</h3>
+            <span style="font-size:11px;color:#A9AE97;font-family:'Cormorant Garamond',serif;font-style:italic;">{{ grp.count }}</span>
+          </div>
+          <sc-for list="{{ grp.items }}" as="it" hint-placeholder-count="4">
+            <div onClick="{{ it.toggle }}" style="display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #F4EDDD;cursor:pointer;">
+              <span style="flex:none;width:19px;height:19px;border-radius:4px;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:12px;background:{{ it.boxBg }};border:1.5px solid {{ it.boxBorder }};color:#fff;">{{ it.mark }}</span>
+              <span style="font-size:13.5px;color:{{ it.textColor }};text-decoration:{{ it.deco }};">{{ it.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;max-width:1060px;margin:0 auto;padding:34px 30px 0;">
+    <div style="height:1px;flex:1;background:linear-gradient(90deg,transparent,#CFD8BD);"></div>
+    <span style="color:#9C854A;font-size:14px;letter-spacing:.3em;">✦</span>
+    <div style="height:1px;flex:1;background:linear-gradient(90deg,#CFD8BD,transparent);"></div>
+  </div>
+
+  <section style="max-width:1060px;margin:0 auto;padding:40px 30px 6px;">
+    <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;">
+      <div>
+        <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">Template · firm up day-of</p>
+        <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 20px;color:#41503A;">Run-of-show</h2>
+        <div style="display:flex;flex-direction:column;">
+          <sc-for list="{{ schedule }}" as="row" hint-placeholder-count="7">
+            <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #EFE6D4;">
+              <div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">{{ row.time }}</div>
+              <div style="font-size:13.5px;color:#5e6552;">{{ row.what }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">Who owns what</p>
+        <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 14px;color:#41503A;">Roles to assign</h2>
+        <a href="Committee-Interest.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:#41503A;color:#FCF8F1;border-radius:6px;padding:13px 18px;margin-bottom:16px;box-shadow:0 8px 22px rgba(58,71,51,.18);" style-hover="background:#33402d;">
+          <span style="font-size:13px;letter-spacing:.03em;">Recruiting? Share the committee interest form</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#C3AE7A;">↗</span>
+        </a>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <sc-for list="{{ roles }}" as="r" hint-placeholder-count="10">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #E7DCC6;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(90,110,70,.04);">
+              <div>
+                <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#41503A;">{{ r.role }}</div>
+                <div style="font-size:12px;color:#85806A;">{{ r.desc }}</div>
+              </div>
+              <span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:8px;margin-top:54px;background:url('assets/stripes-butter.jpeg');background-size:auto 8px;"></div>
+  <footer style="background:#3A4733;color:#E7E8DB;text-align:center;padding:40px 22px;">
+    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;">Blitz <span style="color:#C3AE7A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
+    <p style="margin:10px 0 0;font-size:13px;color:#B4BBA4;"><a href="Home.dc.html" style="color:#C3AE7A;text-decoration:none;">← Back to the hub</a></p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.STORAGE_KEY = "bg_planning_checklist_v1";
+    this.groupsRaw = [
+      { title: "Foundation", accent: "#9C854A", items: [
+        { id: "date_time", label: "Lock event date and time", def: true },
+        { id: "venue_booking", label: "Confirm venue booking at One Preston (contract, deposit, hours)" },
+        { id: "goal_budget", label: "Set fundraising goal and rough budget" },
+        { id: "ticket_cap", label: "Confirm capacity (ticket price set at $100 each)" },
+        { id: "committee", label: "Form planning committee and assign roles" },
+      ]},
+      { title: "Food & Beverage", accent: "#93A678", items: [
+        { id: "caterer", label: "Caterer secured — Camilla's donating food, apps, water & tea", def: true },
+        { id: "menu", label: "Confirm menu details, quantities & headcount with Camilla's" },
+        { id: "thankyou", label: "Arrange a thank-you / recognition for Camilla's" },
+        { id: "drinks", label: "Finalize the two wine-based specialty drinks" },
+        { id: "bar", label: "Coordinate bar service with One Preston (count, hours, pricing)" },
+        { id: "food_rules", label: "Confirm venue rules on outside food & cleanup" },
+      ]},
+      { title: "Vendors", accent: "#D88C93", items: [
+        { id: "vendor_app", label: "Create vendor application + booth fee structure", def: true },
+        { id: "recruit_vendors", label: "Recruit & confirm vendors (variety, avoid duplicates)" },
+        { id: "booth_spaces", label: "Assign booth spaces & collect setup needs (tables, power)" },
+      ]},
+      { title: "Swag Bags", accent: "#9C854A", items: [
+        { id: "totes", label: "Source canvas tote bags + design/order the custom patch" },
+        { id: "ponchos", label: "Source/print game-day ponchos (size, color, quantity, vendor)" },
+        { id: "ten_items", label: "Finalize the 10 curated item options", def: true },
+        { id: "swag_sponsor", label: "Set up swag bag sponsorship ($250 + item cost) in GiveSmart" },
+        { id: "approval", label: "Define committee approval process for vendor-provided items" },
+        { id: "quantity", label: "Confirm quantity (tie to ticket capacity)" },
+        { id: "fill_date", label: "Set fill date and assembly volunteers" },
+      ]},
+      { title: "Prizes & Raffles", accent: "#93A678", items: [
+        { id: "donations", label: "Solicit door prize & raffle basket donations" },
+        { id: "raffle_sales", label: "Set up raffle ticket sales (price, bundles, payment)" },
+        { id: "display", label: "Plan display table and drawing logistics" },
+      ]},
+      { title: "Sponsorships & Fundraising", accent: "#D88C93", items: [
+        { id: "givesmart", label: "Set up GiveSmart — event page, ticketing, items, payments" },
+        { id: "gs_owner", label: "Assign someone to own GiveSmart (setup, checkout, reporting)" },
+        { id: "gs_cash", label: "Decide what runs through GiveSmart vs. cash" },
+        { id: "tiers", label: "Create sponsorship tiers (signage, swag insert, etc.)" },
+        { id: "recruit_sponsors", label: "Recruit local business sponsors" },
+        { id: "payment", label: "Confirm card readers for GiveSmart + backup cash box" },
+      ]},
+      { title: "Marketing & Promotion", accent: "#9C854A", items: [
+        { id: "flyer", label: "Design flyer / social graphics (on-brand colors)" },
+        { id: "ticket_sales", label: "Set up ticket sales (online + in person)" },
+        { id: "promote", label: "Promote via school channels, social media, local groups" },
+        { id: "signage", label: "Create event signage (welcome, check-in, raffle, sponsors)" },
+      ]},
+      { title: "Decor & Setup", accent: "#93A678", items: [
+        { id: "florals", label: "Plan florals, linens, centerpieces & balloons" },
+        { id: "checkin", label: "Plan check-in table and signage" },
+        { id: "backdrop", label: "Arrange a photo backdrop" },
+        { id: "av", label: "Confirm AV/music (playlist, speaker, mic)" },
+      ]},
+      { title: "Day-Of Logistics", accent: "#D88C93", items: [
+        { id: "runofshow", label: "Build the run-of-show timeline" },
+        { id: "shifts", label: "Assign volunteer shifts (check-in, bar, raffles, teardown)" },
+        { id: "cashbox", label: "Prep cash box / change / receipts" },
+        { id: "setup_teardown", label: "Plan setup & teardown windows with the venue" },
+      ]},
+    ];
+    const seed = {};
+    this.groupsRaw.forEach(g => g.items.forEach(it => { if (it.def) seed[it.id] = true; }));
+    this.state = { checked: seed };
+  }
+
+  componentDidMount() {
+    try {
+      const saved = localStorage.getItem(this.STORAGE_KEY);
+      if (saved) this.setState({ checked: JSON.parse(saved) });
+    } catch (e) {}
+  }
+
+  persist(next) {
+    try { localStorage.setItem(this.STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  toggle(id) {
+    this.setState(s => {
+      const next = Object.assign({}, s.checked, { [id]: !s.checked[id] });
+      this.persist(next);
+      return { checked: next };
+    });
+  }
+
+  reset() {
+    this.setState({ checked: {} });
+    this.persist({});
+  }
+
+  renderVals() {
+    const checked = this.state.checked || {};
+    let total = 0, done = 0;
+    const groups = this.groupsRaw.map(g => {
+      const items = g.items.map(it => {
+        const isDone = !!checked[it.id];
+        total++; if (isDone) done++;
+        return {
+          label: it.label,
+          toggle: () => this.toggle(it.id),
+          mark: isDone ? "✓" : "",
+          boxBg: isDone ? "#6F8556" : "#fff",
+          boxBorder: isDone ? "#6F8556" : "#C7D2B4",
+          textColor: isDone ? "#A6AC95" : "#41503A",
+          deco: isDone ? "line-through" : "none",
+        };
+      });
+      const gd = g.items.filter(it => checked[it.id]).length;
+      return { title: g.title, accent: g.accent, items, count: gd + "/" + g.items.length };
+    });
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    return {
+      groups,
+      doneCount: done,
+      totalCount: total,
+      pct: pct + "%",
+      reset: () => this.reset(),
+      schedule: [
+        { time: "T–2 hrs", what: "Volunteer arrival, setup, vendor load-in." },
+        { time: "T–30 min", what: "Final walkthrough, music on, check-in ready." },
+        { time: "Doors", what: "Guests arrive, check in, receive swag bag, mingle & shop vendors." },
+        { time: "+45 min", what: "Dinner served." },
+        { time: "During dinner", what: "Welcome remarks, thank sponsors & Camilla's, community/cause note." },
+        { time: "After dinner", what: "Raffle & door prize drawings; vendor shopping continues." },
+        { time: "Close", what: "Final drawings, thank-yous, teardown." },
+      ],
+      roles: [
+        { role: "Event lead / chair", desc: "Owns the whole event" },
+        { role: "Vendor coordinator", desc: "Recruits and manages vendors" },
+        { role: "Sponsorship lead", desc: "Secures donations and sponsors" },
+        { role: "Swag bag lead", desc: "Sourcing + assembly" },
+        { role: "Raffle / prizes lead", desc: "Donations, ticket sales, drawings" },
+        { role: "Marketing lead", desc: "Flyers, social, ticket sales" },
+        { role: "GiveSmart lead", desc: "Platform setup, day-of checkout, reporting" },
+        { role: "Decor lead", desc: "Styling, setup, photo backdrop" },
+        { role: "Volunteer coordinator", desc: "Day-of shifts" },
+        { role: "Treasurer", desc: "Budget, payments, reconciliation" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
