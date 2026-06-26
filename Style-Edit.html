@@ -248,6 +248,7 @@
   .cat-card .tile{aspect-ratio:1.1/1;border-radius:12px;overflow:hidden;background:linear-gradient(160deg,#fff,var(--pink) 170%);border:1px solid var(--champagne-deep);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
   .cat-card .tile svg{width:62%;height:62%;}
 </style>
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -262,6 +263,7 @@
       <a href="#sponsor">Become a Sponsor</a>
     </div>
     <a href="#sponsor" class="cta">Become a Sponsor</a>
+    <button class="nav-toggle" aria-label="Open menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
   </div>
 </nav>
 
