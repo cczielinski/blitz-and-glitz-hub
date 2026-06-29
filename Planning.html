@@ -10,25 +10,25 @@
 <style>
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0;font-family:'Poppins',sans-serif;font-weight:300;color:#1A3A5C;background:#FFFFFF;min-height:100vh;line-height:1.7;}
+  body{margin:0;font-family:'Poppins',sans-serif;font-weight:300;color:#4A5A3D;background:#FFFFFF;min-height:100vh;line-height:1.7;}
   a{color:inherit;}
-  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid #C8DCF0;}
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid #E2D9C8;}
   .nav-inner{max-width:1180px;margin:0 auto;padding:0 30px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
-  .nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;color:#1A3A5C;text-decoration:none;display:flex;align-items:center;gap:12px;white-space:nowrap;}
+  .nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;color:#4A5A3D;text-decoration:none;display:flex;align-items:center;gap:12px;white-space:nowrap;}
   .nav-links{display:flex;gap:22px;font-size:13px;font-weight:400;align-items:center;}
-  .nav-links a{color:#4A6A8A;text-decoration:none;}
-  .nav-links a:hover{color:#2D6BB0;}
-  .nav-links a.active{color:#2D6BB0;border-bottom:1px solid #2D6BB0;padding-bottom:2px;}
+  .nav-links a{color:#6B7A5A;text-decoration:none;}
+  .nav-links a:hover{color:#829840;}
+  .nav-links a.active{color:#829840;border-bottom:1px solid #829840;padding-bottom:2px;}
   .stripe{height:8px;margin-top:20px;background:url('assets/stripes-butter.jpeg');background-size:auto 8px;}
-  footer{background:#0F2A4A;color:#E2ECF8;text-align:center;padding:24px 22px;}
+  footer{background:#4A5A3D;color:#E8EDDF;text-align:center;padding:24px 22px;}
 
   /* Checklist */
-  .group{break-inside:avoid;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:22px 24px 16px;margin-bottom:24px;box-shadow:0 8px 24px rgba(26,58,92,.05);display:inline-block;width:100%;}
+  .group{break-inside:avoid;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:22px 24px 16px;margin-bottom:24px;box-shadow:0 8px 24px rgba(74,90,61,.05);display:inline-block;width:100%;}
   .check-row{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #DDE9F5;cursor:pointer;user-select:none;}
   .check-row:last-child{border-bottom:none;}
   .check-box{flex:none;width:19px;height:19px;border-radius:4px;margin-top:3px;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fff;border:1.5px solid #9DC4E4;color:#fff;transition:background .12s,border-color .12s;}
-  .check-box.done{background:#2D6BB0;border-color:#2D6BB0;}
-  .check-label{font-size:13.5px;color:#1A3A5C;transition:color .12s;}
+  .check-box.done{background:#2D6BB0;border-color:#829840;}
+  .check-label{font-size:13.5px;color:#4A5A3D;transition:color .12s;}
   .check-label.done{color:#A6AC95;text-decoration:line-through;}
   .progress-bar{height:8px;border-radius:999px;background:#DDE9F5;overflow:hidden;}
   .progress-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#4A80BE,#2D6BB0);width:0%;transition:width .3s;}
@@ -41,7 +41,7 @@
   <div class="nav-inner">
     <a href="Home.html" class="nav-brand">
       Blitz <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;">&amp;</span> Glitz
-      <span style="font-family:'Poppins',sans-serif;font-weight:400;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#4A80BE;border-left:1px solid #C8DCF0;padding-left:12px;">Committee Hub</span>
+      <span style="font-family:'Poppins',sans-serif;font-weight:400;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#829840;border-left:1px solid #D5C9B3;padding-left:12px;">Committee Hub</span>
     </a>
     <div class="nav-links">
       <a href="Home.html">Home</a>
@@ -56,24 +56,24 @@
 </nav>
 
 <!-- HEADER -->
-<header style="padding:36px 24px 26px;background:linear-gradient(rgba(255,255,255,.84),rgba(255,255,255,.92)),url('assets/floral.jpeg');background-size:auto,520px;background-position:center;border-bottom:1px solid #C8DCF0;">
+<header style="padding:36px 24px 26px;background:linear-gradient(rgba(255,255,255,.84),rgba(255,255,255,.92)),url('assets/floral.jpeg');background-size:auto,520px;background-position:center;border-bottom:1px solid #E2D9C8;">
   <div style="max-width:1060px;margin:0 auto;">
-    <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#4A80BE;margin:0 0 14px;">Section 05 &middot; Logistics</p>
-    <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:38px;line-height:1.02;margin:0;color:#1A3A5C;">Planning</h1>
-    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#5A7FA8;">The full checklist, the run-of-show, and committee roles. Check items off as you go &mdash; your progress is saved on this device.</p>
+    <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#829840;margin:0 0 14px;">Section 05 &middot; Logistics</p>
+    <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:38px;line-height:1.02;margin:0;color:#4A5A3D;">Planning</h1>
+    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#8A9A7A;">The full checklist, the run-of-show, and committee roles. Check items off as you go &mdash; your progress is saved on this device.</p>
   </div>
 </header>
 
 <!-- PROGRESS BAR -->
 <section style="max-width:1060px;margin:0 auto;padding:46px 30px 6px;">
-  <div style="background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:24px 30px;box-shadow:0 10px 30px rgba(26,58,92,.06);display:flex;align-items:center;gap:26px;">
+  <div style="background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:24px 30px;box-shadow:0 10px 30px rgba(26,58,92,.06);display:flex;align-items:center;gap:26px;">
     <div style="flex:none;text-align:center;">
-      <div id="pctLabel" style="font-family:'Playfair Display',serif;font-weight:700;font-size:34px;color:#2D6BB0;line-height:1;">0%</div>
-      <div style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#4A80BE;margin-top:3px;">Complete</div>
+      <div id="pctLabel" style="font-family:'Playfair Display',serif;font-weight:700;font-size:34px;color:#829840;line-height:1;">0%</div>
+      <div style="font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#829840;margin-top:3px;">Complete</div>
     </div>
     <div style="flex:1;">
-      <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#5A7FA8;margin-bottom:8px;">
-        <span id="doneLabel" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#1A3A5C;">0 of 0 tasks done</span>
+      <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#8A9A7A;margin-bottom:8px;">
+        <span id="doneLabel" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#4A5A3D;">0 of 0 tasks done</span>
         <span onclick="resetChecklist()" style="cursor:pointer;color:#9C854A;letter-spacing:.04em;">Reset checklist</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
@@ -101,38 +101,38 @@
 
     <!-- Run of Show -->
     <div>
-      <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#4A80BE;margin:0 0 6px;">Template &middot; firm up day-of</p>
-      <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 20px;color:#1A3A5C;">Run-of-show</h2>
+      <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#829840;margin:0 0 6px;">Template &middot; firm up day-of</p>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 20px;color:#4A5A3D;">Run-of-show</h2>
       <div style="display:flex;flex-direction:column;">
-        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">T&minus;2 hrs</div><div style="font-size:13.5px;color:#3D5A7A;">Volunteer arrival, setup, vendor load-in.</div></div>
-        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">T&minus;30 min</div><div style="font-size:13.5px;color:#3D5A7A;">Final walkthrough, music on, check-in table ready.</div></div>
-        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">Doors open</div><div style="font-size:13.5px;color:#3D5A7A;">Guests arrive, check in, receive their swag bag, mingle &amp; shop vendors.</div></div>
-        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">+45 min</div><div style="font-size:13.5px;color:#3D5A7A;">Dinner served by Camillo&rsquo;s.</div></div>
-        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">During dinner</div><div style="font-size:13.5px;color:#3D5A7A;">Welcome remarks, thank sponsors &amp; Camillo&rsquo;s, community / cause note.</div></div>
-        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">After dinner</div><div style="font-size:13.5px;color:#3D5A7A;">Raffle &amp; door prize drawings; vendor shopping continues.</div></div>
-        <div style="display:flex;gap:18px;padding:14px 0;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">Close</div><div style="font-size:13.5px;color:#3D5A7A;">Final drawings, thank-yous, teardown begins.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">T&minus;2 hrs</div><div style="font-size:13.5px;color:#4A5A3D;">Volunteer arrival, setup, vendor load-in.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">T&minus;30 min</div><div style="font-size:13.5px;color:#4A5A3D;">Final walkthrough, music on, check-in table ready.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">Doors open</div><div style="font-size:13.5px;color:#4A5A3D;">Guests arrive, check in, receive their swag bag, mingle &amp; shop vendors.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">+45 min</div><div style="font-size:13.5px;color:#4A5A3D;">Dinner served by Camillo&rsquo;s.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">During dinner</div><div style="font-size:13.5px;color:#4A5A3D;">Welcome remarks, thank sponsors &amp; Camillo&rsquo;s, community / cause note.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;border-bottom:1px solid #DDE9F5;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">After dinner</div><div style="font-size:13.5px;color:#4A5A3D;">Raffle &amp; door prize drawings; vendor shopping continues.</div></div>
+        <div style="display:flex;gap:18px;padding:14px 0;"><div style="flex:none;width:96px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#9C854A;line-height:1.3;">Close</div><div style="font-size:13.5px;color:#4A5A3D;">Final drawings, thank-yous, teardown begins.</div></div>
       </div>
     </div>
 
     <!-- Roles -->
     <div>
-      <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#4A80BE;margin:0 0 6px;">Who owns what</p>
-      <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 14px;color:#1A3A5C;">Roles to assign</h2>
-      <a href="Committee-Interest.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:#1A3A5C;color:#FFFFFF;border-radius:6px;padding:13px 18px;margin-bottom:16px;box-shadow:0 8px 22px rgba(26,58,92,.18);">
+      <p style="letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#829840;margin:0 0 6px;">Who owns what</p>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:28px;margin:0 0 14px;color:#4A5A3D;">Roles to assign</h2>
+      <a href="Committee-Interest.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;background:#4A5A3D;color:#FFFFFF;border-radius:6px;padding:13px 18px;margin-bottom:16px;box-shadow:0 8px 22px rgba(74,90,61,.10);">
         <span style="font-size:13px;letter-spacing:.03em;">Recruiting? Share the committee interest form</span>
         <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#C3AE7A;">&#8599;</span>
       </a>
       <div style="display:flex;flex-direction:column;gap:9px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Event lead / chair</div><div style="font-size:12px;color:#85806A;">Owns the whole event</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Vendor coordinator</div><div style="font-size:12px;color:#85806A;">Recruits and manages vendors</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Sponsorship lead</div><div style="font-size:12px;color:#85806A;">Secures donations and sponsors</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Swag bag lead</div><div style="font-size:12px;color:#85806A;">Sourcing + assembly</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Raffle / prizes lead</div><div style="font-size:12px;color:#85806A;">Donations, ticket sales, drawings</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Marketing lead</div><div style="font-size:12px;color:#85806A;">Flyers, social, ticket sales</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">GiveSmart lead</div><div style="font-size:12px;color:#85806A;">Platform setup, checkout, reporting</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Decor lead</div><div style="font-size:12px;color:#85806A;">Styling, setup, photo backdrop</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Volunteer coordinator</div><div style="font-size:12px;color:#85806A;">Day-of shifts</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #C8DCF0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#1A3A5C;">Treasurer</div><div style="font-size:12px;color:#85806A;">Budget, payments, reconciliation</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Event lead / chair</div><div style="font-size:12px;color:#85806A;">Owns the whole event</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Vendor coordinator</div><div style="font-size:12px;color:#85806A;">Recruits and manages vendors</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Sponsorship lead</div><div style="font-size:12px;color:#85806A;">Secures donations and sponsors</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Swag bag lead</div><div style="font-size:12px;color:#85806A;">Sourcing + assembly</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Raffle / prizes lead</div><div style="font-size:12px;color:#85806A;">Donations, ticket sales, drawings</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Marketing lead</div><div style="font-size:12px;color:#85806A;">Flyers, social, ticket sales</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">GiveSmart lead</div><div style="font-size:12px;color:#85806A;">Platform setup, checkout, reporting</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Decor lead</div><div style="font-size:12px;color:#85806A;">Styling, setup, photo backdrop</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Volunteer coordinator</div><div style="font-size:12px;color:#85806A;">Day-of shifts</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:11px 16px;box-shadow:0 5px 16px rgba(26,58,92,.04);"><div><div style="font-family:'Playfair Display',serif;font-weight:600;font-size:14.5px;color:#4A5A3D;">Treasurer</div><div style="font-size:12px;color:#85806A;">Budget, payments, reconciliation</div></div><span style="flex:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#b8722f;background:#FBE9DE;border-radius:999px;padding:4px 11px;">Unassigned</span></div>
       </div>
     </div>
 
@@ -142,7 +142,7 @@
 <div class="stripe"></div>
 <footer>
   <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;">Blitz <span style="color:#C3AE7A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
-  <p style="margin:10px 0 0;font-size:13px;color:#8EB0D0;"><a href="Home.html" style="color:#C3AE7A;text-decoration:none;">&larr; Back to the hub</a></p>
+  <p style="margin:10px 0 0;font-size:13px;color:#B7C89B;"><a href="Home.html" style="color:#C3AE7A;text-decoration:none;">&larr; Back to the hub</a></p>
 </footer>
 
 <script>
@@ -258,7 +258,7 @@ GROUPS.forEach(g => {
   const gDone = g.items.filter(it => saved[it.id]).length;
   el.innerHTML = `
     <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
-      <h3 style="font-family:'Playfair Display',serif;font-weight:600;font-size:18px;margin:0;color:#1A3A5C;">${g.title}</h3>
+      <h3 style="font-family:'Playfair Display',serif;font-weight:600;font-size:18px;margin:0;color:#4A5A3D;">${g.title}</h3>
       <span id="count_${g.items[0].id}" style="font-size:11px;color:#A9AE97;font-family:'Cormorant Garamond',serif;font-style:italic;">${gDone}/${g.items.length}</span>
     </div>
     ${g.items.map(it => `
