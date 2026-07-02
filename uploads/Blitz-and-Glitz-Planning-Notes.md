@@ -121,7 +121,7 @@ Champagne or Prosecco + fresh raspberry puree. Simple, elegant, pretty.
 | 11th | Krissy Bolt & Allison Gutschlag |
 | 10th | Erika Hallock, Cindy Hill & Melanie Vest |
 | 9th | Gara Little |
-| 8th | Christina Zillenski & Jamie Kimball |
+| 8th | Christina Zielinski & Jamie Kimball |
 | 7th | Valerie Standridge, Alicia Gage & Nicki Fletcher |
 | Alumni Chair | Melinda Peacock |
 
