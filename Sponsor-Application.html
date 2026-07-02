@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blitz &amp; Glitz — Sponsor Application</title>
+
+<!--
+========================================================================
+  SETUP — READ BEFORE PUBLISHING (then delete this comment)
+========================================================================
+  This form needs a free form-handler to receive submissions by email /
+  spreadsheet. Easiest option: Formspree (https://formspree.io).
+
+  1. Create a free Formspree account and a new form.
+  2. Copy your form endpoint (looks like https://formspree.io/f/abcdwxyz).
+  3. Replace YOUR_FORM_ID below in the <form action="..."> tag.
+  4. Upload this .html file alongside the rest of the site (it uses the
+     same nav, stripe, and responsive.css as every other page).
+
+  No-code alternative: rebuild the same fields as a Google Form instead.
+
+  Once this page is live at a real URL, update the SPONSOR_LINK at the
+  top of Donor-Text-Launcher.html to point here.
+========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Poppins',sans-serif;font-weight:300;font-size:16px;color:#4A5A3D;background:#FFFFFF;min-height:100vh;line-height:1.6;}
+  a{color:inherit;}
+
+  /* ===== NAV (matches every page in the hub) ===== */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #E2D9C8;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:#4A5A3D;text-decoration:none;display:flex;align-items:center;gap:10px;white-space:nowrap;}
+  .nav-brand .amp{color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;}
+  .nav-brand .sub{font-family:'Poppins',sans-serif;font-weight:400;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#829840;border-left:1px solid #D5C9B3;padding-left:10px;}
+  .nav-links{display:flex;gap:20px;font-size:12.5px;font-weight:400;align-items:center;}
+  .nav-links a{color:#6B7A5A;text-decoration:none;}
+  .nav-links a:hover{color:#829840;}
+  .nav-links a.active{color:#829840;border-bottom:1px solid #829840;padding-bottom:2px;}
+
+  .stripe{height:8px;background:url('assets/stripes-butter.jpeg');background-size:auto 8px;}
+  footer{background:#4A5A3D;color:#E8EDDF;text-align:center;padding:28px 22px;}
+
+  /* ===== Cards / tiles ===== */
+  .card{background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:26px 30px;box-shadow:0 10px 30px rgba(74,90,61,.07);}
+
+  .tier-card{background:#fff;border:1px solid #EAE0D0;border-radius:6px;padding:22px 22px;box-shadow:0 8px 24px rgba(26,58,92,.06);position:relative;height:100%;}
+  .tier-card.top{background:#4A5A3D;border-color:#4A5A3D;color:#fff;}
+  .tier-option{position:relative;display:block;}
+  .tier-option input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0;z-index:2;}
+  .tier-option input:checked + .tier-card{border-color:#829840;box-shadow:0 0 0 3px rgba(130,152,64,.15);}
+  .tier-option input:checked + .tier-card.top{box-shadow:0 0 0 3px rgba(156,133,74,.4);}
+  .tname{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:15px;color:#9C854A;margin-bottom:6px;}
+  .tier-card.top .tname{color:#EAD58B;}
+  .tprice{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;color:#4A5A3D;line-height:1;margin-bottom:10px;}
+  .tier-card.top .tprice{color:#fff;}
+  .tdesc{font-size:12.5px;color:#8A9A7A;line-height:1.5;}
+  .tier-card.top .tdesc{color:#F2D4DC;}
+
+  /* ===== Form ===== */
+  form{max-width:860px;margin:0 auto;}
+  .section{margin:0 0 32px;}
+  .form-eyebrow{font-size:10px;letter-spacing:.20em;text-transform:uppercase;color:#829840;margin:0 0 8px;}
+  .section h2{font-family:'Playfair Display',serif;font-weight:600;font-size:24px;color:#4A5A3D;margin:0 0 6px;display:flex;align-items:center;gap:12px;}
+  .section h2 .num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#9C854A;color:#fff;font-family:'Poppins';font-weight:500;font-size:11px;flex:none;}
+  .section .hint{font-size:13.5px;color:#8A9A7A;margin:0 0 18px 32px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .full{grid-column:1 / -1;}
+
+  label{display:block;font-size:13px;font-weight:400;margin:0 0 6px;color:#4A5A3D;}
+  .req{color:#B36A73;}
+
+  input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{
+    font-family:'Poppins',sans-serif;font-weight:300;font-size:14px;color:#4A5A3D;
+    background:#fff;border:1px solid #D5C9B3;border-radius:5px;padding:10px 14px;width:100%;
+    transition:border-color .15s,box-shadow .15s;
+  }
+  input::placeholder,textarea::placeholder{color:#AEB0A0;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#829840;box-shadow:0 0 0 3px rgba(130,152,64,.12);}
+  textarea{resize:vertical;min-height:84px;}
+
+  .choice{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+  .choice label{display:flex;align-items:center;gap:8px;background:#F8F5F0;border:1px solid #EAE0D0;border-radius:5px;padding:9px 14px;margin:0;font-weight:400;cursor:pointer;font-size:13px;transition:background .15s,border-color .15s;}
+  .choice label:hover{border-color:#829840;}
+  .choice input{accent-color:#829840;width:16px;height:16px;margin:0;}
+
+  .divider{height:1px;background:#F5E8EC;margin:6px 0 30px;}
+
+  .note{background:#F8F5F0;border-left:4px solid #9C854A;border-radius:6px;padding:12px 16px;font-size:13px;color:#4A5A3D;margin:0 0 18px 32px;}
+
+  .submit-wrap{text-align:center;margin-top:12px;}
+  .btn-primary{background:#4A5A3D;color:#fff;font-family:'Poppins',sans-serif;font-weight:400;font-size:14.5px;letter-spacing:.06em;padding:13px 40px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 10px 24px rgba(74,90,61,.28);transition:transform .12s,box-shadow .12s;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(74,90,61,.34);}
+  .fineprint{font-size:12px;color:#8A9A7A;margin-top:14px;}
+
+  @media(max-width:560px){
+    .grid{grid-template-columns:1fr;}
+    .section .hint,.note{margin-left:0;}
+  }
+
+  /* ===== Thank-you confirmation ===== */
+  #thankYou{display:none;text-align:center;padding:20px 10px 10px;}
+  #thankYou .icon{width:56px;height:56px;border-radius:50%;background:#829840;color:#fff;font-size:28px;line-height:56px;margin:0 auto 18px;}
+  #thankYou h2{font-family:'Playfair Display',serif;font-weight:700;font-size:28px;color:#4A5A3D;margin:0 0 10px;}
+  #thankYou p{font-size:14.5px;color:#4A5A3D;max-width:480px;margin:0 auto 8px;}
+  #thankYou .fineprint{font-size:12px;color:#8A9A7A;margin-top:16px;}
+  #thankYou .btn-primary{display:inline-block;text-decoration:none;margin-top:18px;}
+  #formError{display:none;background:#FBEAEA;border-left:4px solid #B36A73;border-radius:6px;padding:12px 16px;font-size:13px;color:#4A5A3D;margin:0 0 20px;}
+</style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="Home.html" class="nav-brand">
+      Blitz <span class="amp">&amp;</span> Glitz
+      <span class="sub">Committee Hub</span>
+    </a>
+    <div class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="Event-and-Venue.html">Event &amp; Venue</a>
+      <a href="Food-and-Drinks.html">Food &amp; Drinks</a>
+      <a href="Swag-Bags.html">Swag Bags</a>
+      <a href="Sponsors-and-Vendors.html" class="active">Sponsors</a>
+      <a href="Planning.html">Planning</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header style="padding:36px 24px 26px;background:linear-gradient(rgba(255,255,255,.84),rgba(255,255,255,.92)),url('assets/floral.jpeg');background-size:auto,520px;background-position:center;border-bottom:1px solid #E2D9C8;">
+  <div style="max-width:1060px;margin:0 auto;">
+    <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#829840;margin:0 0 14px;">Section 04 &middot; The Partners</p>
+    <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:38px;line-height:1.02;margin:0;color:#4A5A3D;">Sponsor <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;">&amp;</span> Application</h1>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:21px;color:#B36A73;margin:8px 0 14px;">A Community Moms Night Out &middot; Gunter, Texas</p>
+    <p style="max-width:660px;margin:0;font-size:15.5px;color:#8A9A7A;">Support the event &mdash; become a named sponsor and get recognized from the website to the swag bag.</p>
+  </div>
+</header>
+
+<!-- FORM SECTION -->
+<section style="max-width:1060px;margin:0 auto;padding:44px 30px 10px;">
+  <div class="card" style="padding:36px 40px;">
+    <div id="formError">Sorry, something went wrong submitting your application. Please try again, or email us directly at <a href="mailto:chris@proadinc.com" style="color:#B36A73;text-decoration:underline;">chris@proadinc.com</a>.</div>
+
+    <!-- Replace YOUR_FORM_ID with your Formspree endpoint (see setup note at top of file) -->
+    <form id="sponsorForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+      <!-- ============ SECTION 1 ============ -->
+      <div class="section">
+        <p class="form-eyebrow">Step One</p>
+        <h2><span class="num">1</span> Sponsor Information</h2>
+        <p class="hint">Tell us about your business so we can recognize you correctly.</p>
+
+        <div class="grid">
+          <div class="full">
+            <label>Business / Sponsor name <span class="req">*</span></label>
+            <input type="text" name="business_name" required>
+          </div>
+          <div>
+            <label>Contact name <span class="req">*</span></label>
+            <input type="text" name="contact_name" required>
+          </div>
+          <div>
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div>
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required>
+          </div>
+          <div>
+            <label>Website</label>
+            <input type="url" name="website" placeholder="https://">
+          </div>
+          <div class="full">
+            <label>Instagram / Facebook</label>
+            <input type="text" name="social" placeholder="@yourbusiness">
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ============ SECTION 2 ============ -->
+      <div class="section">
+        <p class="form-eyebrow">Step Two</p>
+        <h2><span class="num">2</span> Choose Your Sponsorship Level</h2>
+        <p class="hint">Every sponsor is recognized — from the website to the swag bag. See the Sponsors page for full benefit details.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+          <label class="tier-option">
+            <input type="radio" name="sponsor_level" value="Presenting Sponsor - $5,000" required>
+            <div class="tier-card top">
+              <div class="tname">Blitz &amp; Glitz Presenting Sponsor</div>
+              <div class="tprice">$5,000</div>
+              <div class="tdesc">Premier logo placement, top billing everywhere, a table for 8, full playbook page, round bale logo &amp; radio spot.<br>*Option to add company branded item to swag bag or choose from one of our curated item options.</div>
+            </div>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="sponsor_level" value="Touchdown Sponsor - $2,500">
+            <div class="tier-card" style="border-top:3px solid #829840;">
+              <div class="tname">Touchdown Sponsor</div>
+              <div class="tprice">$2,500</div>
+              <div class="tdesc">Event signage &amp; print, website/social recognition, 4 tickets, half-page playbook feature.<br>*Option to add company branded item to swag bag or choose from one of our curated item options.</div>
+            </div>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="sponsor_level" value="Friday Night Lights - $1,500">
+            <div class="tier-card" style="border-top:3px solid #829840;">
+              <div class="tname">Friday Night Lights</div>
+              <div class="tprice">$1,500</div>
+              <div class="tdesc">Event signage &amp; print, website/social recognition, 2 tickets, quarter-page playbook feature.<br>*Option to add company branded item to swag bag or choose from one of our curated item options.</div>
+            </div>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="sponsor_level" value="Touchdown in Tulle - $500">
+            <div class="tier-card" style="border-top:3px solid #B36A73;">
+              <div class="tname">Touchdown in Tulle</div>
+              <div class="tprice">$500</div>
+              <div class="tdesc">Website &amp; social recognition, 1 ticket to Blitz &amp; Glitz, recognition in the playbook.</div>
+            </div>
+          </label>
+          <label class="tier-option">
+            <input type="radio" name="sponsor_level" value="Tiger Pride Sponsor - $250">
+            <div class="tier-card" style="border-top:3px solid #9C854A;">
+              <div class="tname">Tiger Pride Sponsor</div>
+              <div class="tprice">$250</div>
+              <div class="tdesc">Website listing with logo, playbook recognition, plus a co-branded swag item (your logo + GT logo) on the approved item — item cost included.</div>
+            </div>
+          </label>
+        </div>
+        <p style="font-size:12px;color:#8A9A7A;margin:12px 0 0 2px;">*Option to add a company branded item to the swag bag, or choose from one of our curated item options. Not available for the Touchdown in Tulle level.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ============ SECTION 3 ============ -->
+      <div class="section">
+        <p class="form-eyebrow">Step Three</p>
+        <h2><span class="num">3</span> Swag Bag Item (if applicable)</h2>
+        <p class="hint">Presenting Sponsor, Touchdown Sponsor, Friday Night Lights, and Tiger Pride Sponsor levels can all include an item in every attendee's canvas tote — a curated selection of 10 approved items, or your own item with committee approval. (Not available for the Touchdown in Tulle level.)</p>
+        <div class="note"><strong>$250 Tiger Pride Sponsor</strong> &mdash; your item carries <strong>your logo + the GT logo</strong> (item cost included in the $250).</div>
+
+        <div class="grid">
+          <div class="full">
+            <label>Which item would you like to include? (choose one, or propose your own)</label>
+            <select name="swag_item_choice">
+              <option value="">— Not applicable / select an item —</option>
+              <option>Printed game-day poncho</option>
+              <option>Folding hand fan / stadium fan</option>
+              <option>Stadium seat cushion (bleacher cushion)</option>
+              <option>Insulated tumbler / stainless cup</option>
+              <option>Stadium-approved clear bag / crossbody clutch</option>
+              <option>Rally towel / spirit towel</option>
+              <option>Can koozie / drink sleeve</option>
+              <option>Cozy stadium blanket</option>
+              <option>Pom-poms / spirit shakers</option>
+              <option>Lip balm / mini sunscreen</option>
+              <option>I'll propose my own item (pending committee approval)</option>
+            </select>
+          </div>
+          <div class="full">
+            <label>If proposing your own item, describe it (for committee approval)</label>
+            <textarea name="swag_item_details" placeholder="e.g., branded lip balm, sample candle, coupon card — and quantity"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ============ SECTION 4 ============ -->
+      <div class="section">
+        <p class="form-eyebrow">Step Four</p>
+        <h2><span class="num">4</span> Payment &amp; Logo</h2>
+        <div class="grid">
+          <div class="full">
+            <label>How would you prefer to pay?</label>
+            <div class="choice">
+              <label><input type="radio" name="payment_method" value="GiveSmart"> GiveSmart (online)</label>
+              <label><input type="radio" name="payment_method" value="Check"> Check</label>
+              <label><input type="radio" name="payment_method" value="Venmo/Cash App"> Venmo / Cash App</label>
+              <label><input type="radio" name="payment_method" value="Other"> Other</label>
+            </div>
+          </div>
+          <div class="full">
+            <label>Anything else you'd like us to know?</label>
+            <textarea name="other_notes" placeholder="Logo files can be emailed separately once your application is confirmed."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="btn-primary">Submit Sponsorship</button>
+        <p class="fineprint">We'll follow up by email to confirm your level and share payment &amp; logo details.</p>
+      </div>
+
+    </form>
+
+    <!-- THANK-YOU CONFIRMATION (shown after successful submission) -->
+    <div id="thankYou">
+      <div class="icon">&#10003;</div>
+      <h2>Thank you for supporting Blitz &amp; Glitz!</h2>
+      <p>Your sponsorship application has been received. We&rsquo;re so grateful for your support of Gunter Tiger Football.</p>
+      <p>We&rsquo;ll follow up by email to confirm your level and share payment &amp; logo details.</p>
+      <a href="Home.html" class="btn-primary">Back to the Hub</a>
+      <p class="fineprint">Questions in the meantime? Email <a href="mailto:chris@proadinc.com" style="color:#829840;">chris@proadinc.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+<footer>
+  <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;">Blitz <span style="color:#C3AE7A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
+  <p style="margin:10px 0 0;font-size:13px;color:#B7C89B;"><a href="Sponsors-and-Vendors.html" style="color:#C3AE7A;text-decoration:none;">&larr; Back to Sponsors</a></p>
+</footer>
+
+<script>
+  var form = document.getElementById('sponsorForm');
+  var errorBox = document.getElementById('formError');
+  var thankYou = document.getElementById('thankYou');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBox.style.display = 'none';
+    var submitBtn = form.querySelector('.btn-primary');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        thankYou.style.display = 'block';
+        thankYou.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Sponsorship';
+      }
+    }).catch(function () {
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Sponsorship';
+    });
+  });
+</script>
+</body>
+</html>
