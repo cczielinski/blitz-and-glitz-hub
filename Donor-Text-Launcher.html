@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blitz &amp; Glitz — Donor Text Launcher (Internal)</title>
+
+<!--
+========================================================================
+  INTERNAL COMMITTEE TOOL — DO NOT PUBLISH TO THE PUBLIC WEBSITE
+========================================================================
+  This page contains real names and phone numbers pulled from last
+  year's "Top Donors By Revenue" report. Keep it private to the
+  committee (email the file, or host behind a password) — do not link
+  it from the public Blitz & Glitz site or the Sponsors page.
+
+  SETUP — before sending:
+  1. Update SPONSOR_LINK below once Sponsor-Application.html is live
+     at a real URL (it needs a full https:// link to work inside a
+     text message — a relative link won't open on someone's phone).
+  2. Update SENDER_NAME if you'd like the message signed differently.
+  3. Open this file on the phone you're texting FROM (each "Text Now"
+     button opens your Messages app with the number and message
+     pre-filled — you just review and hit send).
+========================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+  :root{
+    --butter:#FBF1C2;
+    --champagne:#F3E4CC;
+    --pink:#F8D7DD;
+    --gold:#C0982E;
+    --gold-soft:#CBB079;
+    --ink:#4a3f2e;
+    --ink-soft:#7a6f5c;
+    --white:#fffdf8;
+    --forest:#4A5A3D;
+    --border:#EAE0D0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;font-family:'Poppins',sans-serif;color:var(--ink);
+    background:linear-gradient(135deg,var(--butter) 0%,var(--champagne) 45%,var(--pink) 100%);
+    background-attachment:fixed;padding:28px 16px 60px;line-height:1.6;
+  }
+  .wrap{max-width:880px;margin:0 auto;}
+
+  .warn{
+    background:#FDECEC;border:1px solid #E8A9A9;color:#7A2E2E;
+    border-radius:10px;padding:14px 18px;font-size:13px;margin-bottom:20px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .warn b{display:block;font-size:13.5px;margin-bottom:2px;}
+
+  .card{
+    background:var(--white);border-radius:18px;
+    box-shadow:0 18px 50px rgba(120,100,60,.16);
+    border:1px solid rgba(192,152,46,.25);overflow:hidden;
+  }
+  .hero{
+    text-align:center;padding:38px 30px 30px;
+    background:linear-gradient(180deg,var(--champagne) 0%,var(--white) 100%);
+    border-bottom:2px solid var(--gold-soft);
+  }
+  .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:11.5px;font-weight:600;color:var(--gold);margin:0 0 8px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:38px;margin:0;color:var(--ink);font-weight:700;}
+  .hero h1 .amp{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;}
+  .hero .sub{margin:12px auto 0;max-width:560px;font-size:14px;color:var(--ink-soft);}
+
+  .toolbar{
+    display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    padding:18px 26px;border-bottom:1px solid var(--border);background:#FBF9F5;
+  }
+  .toolbar .count{font-size:13px;color:var(--ink-soft);}
+  .toolbar input[type=search]{
+    flex:1;min-width:200px;max-width:340px;padding:10px 14px;border-radius:999px;
+    border:1px solid var(--border);font-family:'Poppins';font-size:13.5px;color:var(--ink);
+  }
+  .toolbar input[type=search]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(192,152,46,.15);}
+
+  .list{padding:8px 26px 30px;}
+  .row{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:14px 4px;border-bottom:1px solid var(--border);
+  }
+  .row:last-child{border-bottom:none;}
+  .who{min-width:0;}
+  .name{font-family:'Playfair Display',serif;font-weight:600;font-size:15.5px;color:var(--ink);}
+  .meta{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .meta .rev{color:var(--gold);font-weight:500;}
+  .btn{
+    flex:none;text-decoration:none;font-family:'Poppins';font-weight:600;font-size:13px;
+    color:#fff;background:linear-gradient(135deg,var(--gold) 0%,#a8801f 100%);
+    padding:9px 18px;border-radius:999px;white-space:nowrap;
+    box-shadow:0 6px 14px rgba(168,128,31,.28);
+    transition:transform .12s;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn.copied{background:var(--forest);}
+
+  footer{text-align:center;padding:20px;font-size:12px;color:var(--ink-soft);background:var(--champagne);border-top:1px solid var(--gold-soft);}
+
+  @media(max-width:560px){
+    .hero h1{font-size:30px;}
+    .row{flex-direction:column;align-items:flex-start;gap:8px;}
+    .btn{align-self:stretch;text-align:center;}
+    .toolbar{flex-direction:column;align-items:stretch;}
+    .toolbar input[type=search]{max-width:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="warn">
+    <span>🔒</span>
+    <div><b>Internal committee tool — contains real phone numbers.</b> Do not publish this page or link it from the public website. Share it privately with the committee members doing outreach.</div>
+  </div>
+
+  <div class="card">
+    <div class="hero">
+      <p class="eyebrow">One-Tap Text Launcher</p>
+      <h1>Blitz <span class="amp">&amp;</span> Glitz</h1>
+      <p class="sub">Every donor from last year's event with a phone on file. Tap "Text Now" next to a name to open Messages with a personalized invite — already filled in, ready to review and send.</p>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search a name or team…" oninput="filterList()">
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="list" id="list"></div>
+  </div>
+
+  <footer>Blitz &amp; Glitz · Sunday, August 23, 2026 · One Preston, Gunter, TX &middot; Source: last year's Top Donors by Revenue report</footer>
+</div>
+
+<script>
+  // ---- CONFIG — update before sending ----
+  const SPONSOR_LINK = "https://YOURDOMAIN.com/Sponsor-Application.html"; // replace once the site + Sponsor-Application.html are live
+  const SENDER_NAME = "the Blitz & Glitz committee";
+
+  // ---- Donor data (from "glitz - Top Donors By Revenue Report.xlsx"; phone on file, committee/admin rows excluded) ----
+  const donors = [{"first": "Stephanie", "last": "Hudson", "phone": "+12149126119", "revenue": 5675, "biz": ""}, {"first": "Erika", "last": "Hallock", "phone": "+12149015788", "revenue": 3869, "biz": "Hallock Dental"}, {"first": "Valerie", "last": "Standridge", "phone": "+18172530760", "revenue": 3565, "biz": "Eurotek"}, {"first": "Melinda", "last": "Peacock", "phone": "+19038164049", "revenue": 2440, "biz": "Peacock Petals"}, {"first": "Nicole", "last": "Fletcher", "phone": "+14694529109", "revenue": 1740, "biz": "ICS"}, {"first": "Danielle", "last": "Shapiro", "phone": "+19727465723", "revenue": 1555, "biz": "Comp'd Tickets"}, {"first": "Robin", "last": "Wisdom", "phone": "+18177032320", "revenue": 1550, "biz": "Comp'd Tickets"}, {"first": "Brandon", "last": "Lehmer", "phone": "+14696312016", "revenue": 1500, "biz": ""}, {"first": "Casey", "last": "Peacock", "phone": "+19038145732", "revenue": 1500, "biz": ""}, {"first": "Kelsey", "last": "Walter", "phone": "+14692263111", "revenue": 1500, "biz": ""}, {"first": "Beth", "last": "Bowe", "phone": "+18168033825", "revenue": 1295, "biz": "Eurotek"}, {"first": "Penny", "last": "Gibbs", "phone": "+12812220908", "revenue": 1175, "biz": "Moxy Energy"}, {"first": "Jenny", "last": "Walden", "phone": "+19407368524", "revenue": 1010, "biz": "Crissy Bolt"}, {"first": "Crissy", "last": "Bolt", "phone": "+19726723734", "revenue": 1000, "biz": "Crissy Bolt"}, {"first": "Amy", "last": "Burtsfield", "phone": "+19725109669", "revenue": 1000, "biz": "Pure & Free"}, {"first": "Debbie", "last": "Howard", "phone": "+14696887653", "revenue": 690, "biz": "Peacock Petals"}, {"first": "Carla", "last": "Sheridan", "phone": "+19036477674", "revenue": 665, "biz": "ICS"}, {"first": "Tara", "last": "Roane", "phone": "+12142517702", "revenue": 640, "biz": "Individual Sales"}, {"first": "Sherry", "last": "Carter", "phone": "+12147265228", "revenue": 500, "biz": ""}, {"first": "Colin", "last": "Fletcher", "phone": "+14695145183", "revenue": 500, "biz": ""}, {"first": "Donna", "last": "Lindsey", "phone": "+19033409302", "revenue": 395, "biz": "Hallock Dental"}, {"first": "Brittni", "last": "Rumage", "phone": "+18175380530", "revenue": 340, "biz": "Peacock Petals"}, {"first": "Camri", "last": "Breeding", "phone": "+18179882650", "revenue": 300, "biz": "Comp'd Tickets"}, {"first": "Rachel", "last": "Fisher", "phone": "+18176730708", "revenue": 300, "biz": "Crissy Bolt"}, {"first": "Cindy", "last": "Hill", "phone": "+12092758983", "revenue": 300, "biz": "Individual Sales"}, {"first": "Erin", "last": "Hilton", "phone": "+19728413427", "revenue": 300, "biz": "Individual Sales"}, {"first": "Danielle", "last": "Waltz", "phone": "+16109551505", "revenue": 300, "biz": "Individual Sales"}, {"first": "Jennifer", "last": "Wilson", "phone": "+19038217210", "revenue": 300, "biz": "Peacock Petals"}, {"first": "John", "last": "Gutschlag", "phone": "+19727544151", "revenue": 295, "biz": ""}, {"first": "Emily", "last": "Coleman", "phone": "+18062390975", "revenue": 290, "biz": "Hallock Dental"}, {"first": "Julie", "last": "Leonard", "phone": "+12149012994", "revenue": 290, "biz": "Individual Sales"}, {"first": "Erin", "last": "Fryar", "phone": "+13252128979", "revenue": 275, "biz": "Pure & Free"}, {"first": "Heather", "last": "L Jacques", "phone": "+17346796770", "revenue": 250, "biz": "ICS"}, {"first": "Janie", "last": "Lehmer", "phone": "+14696312036", "revenue": 250, "biz": "Comp'd Tickets"}, {"first": "Jamie", "last": "Middleton", "phone": "+12147345344", "revenue": 250, "biz": ""}, {"first": "Alexys", "last": "Spagnola", "phone": "+12147336800", "revenue": 250, "biz": ""}, {"first": "Allison", "last": "Tarpley", "phone": "+12143859351", "revenue": 250, "biz": "Peacock Petals"}, {"first": "Tabitha", "last": "Brehm", "phone": "+14692855114", "revenue": 240, "biz": "Comp'd Tickets"}, {"first": "Glenna", "last": "Culverhouse", "phone": "+12544958247", "revenue": 228, "biz": "Moxy Energy"}, {"first": "Jennifer", "last": "Kennemer", "phone": "+14692619404", "revenue": 225, "biz": "Moxy Energy"}, {"first": "Amy", "last": "Johnson", "phone": "+18175011419", "revenue": 215, "biz": "Eurotek"}, {"first": "Rachael", "last": "Doty", "phone": "+14694639398", "revenue": 200, "biz": ""}, {"first": "Charissa", "last": "Foster", "phone": "+19729790444", "revenue": 200, "biz": "Moxy Energy"}, {"first": "Brooke", "last": "Overman", "phone": "+12147074560", "revenue": 200, "biz": "Crissy Bolt"}, {"first": "Jenna", "last": "Prescott", "phone": "+18178257566", "revenue": 200, "biz": "Crissy Bolt"}, {"first": "Holly", "last": "Robison", "phone": "+12147709330", "revenue": 200, "biz": "Individual Sales"}, {"first": "Kelly", "last": "Rodriquez", "phone": "+12142935335", "revenue": 200, "biz": "Comp'd Tickets"}, {"first": "Lori", "last": "Barrow", "phone": "+14698670439", "revenue": 190, "biz": "Eurotek"}, {"first": "Shaina", "last": "Rutherford", "phone": "+19728386405", "revenue": 170, "biz": "Crissy Bolt"}, {"first": "Jessica", "last": "Dunn", "phone": "+12145588447", "revenue": 165, "biz": "Individual Sales"}, {"first": "Jessica", "last": "Esteves", "phone": "+14693633107", "revenue": 150, "biz": ""}, {"first": "Carol", "last": "Hill", "phone": "+14694501992", "revenue": 150, "biz": "Individual Sales"}, {"first": "Ariana", "last": "Kay", "phone": "+19363711084", "revenue": 150, "biz": "Coaches Wives"}, {"first": "Lindsey", "last": "Long", "phone": "+12108543364", "revenue": 150, "biz": "ICS"}, {"first": "Quinn", "last": "Nichols", "phone": "+12142126666", "revenue": 150, "biz": "Individual Sales"}, {"first": "Nathan", "last": "Williams", "phone": "+19724670122", "revenue": 150, "biz": ""}, {"first": "Kyla", "last": "Prusak", "phone": "+19403902761", "revenue": 140, "biz": "Hallock Dental"}, {"first": "Angie", "last": "Acha", "phone": "+19412233400", "revenue": 135, "biz": "Scout & Cellar"}, {"first": "Katelyn", "last": "Gill", "phone": "+19038706640", "revenue": 135, "biz": "Coaches Wives"}, {"first": "Jamie", "last": "Kimble", "phone": "+19728963002", "revenue": 125, "biz": "Pure & Free"}, {"first": "Lindsey", "last": "Watson", "phone": "+19403671314", "revenue": 125, "biz": "Scout & Cellar"}, {"first": "Hallie", "last": "McDaniel", "phone": "+12148506916", "revenue": 120, "biz": "Coaches Wives"}, {"first": "Samantha", "last": "Foster", "phone": "+19725336765", "revenue": 110, "biz": "Scout & Cellar"}, {"first": "Tommi", "last": "Campiti", "phone": "+14697679091", "revenue": 100, "biz": ""}, {"first": "Adrian", "last": "Ellis", "phone": "+12143948650", "revenue": 100, "biz": ""}, {"first": "Kimber", "last": "Elmore", "phone": "+19037719366", "revenue": 100, "biz": "Individual Sales"}, {"first": "Allison", "last": "Gutschlag", "phone": "+12147894536", "revenue": 100, "biz": "Crissy Bolt"}, {"first": "Jill", "last": "Latimer", "phone": "+19038150298", "revenue": 100, "biz": "Scout & Cellar"}, {"first": "Harlei", "last": "Ragsdale", "phone": "+14693839490", "revenue": 100, "biz": "Coaches Wives"}, {"first": "Josh", "last": "Rathbone", "phone": "+19038168253", "revenue": 100, "biz": ""}, {"first": "Lisa", "last": "Rogan", "phone": "+12145374770", "revenue": 100, "biz": "Eurotek"}, {"first": "Holly", "last": "Yeary", "phone": "+19038213093", "revenue": 100, "biz": "Pure & Free"}, {"first": "Heather", "last": "Barton", "phone": "+19039528409", "revenue": 90, "biz": "Hallock Dental"}, {"first": "Shannan", "last": "Gulbis", "phone": "+12143369259", "revenue": 90, "biz": "Eurotek"}, {"first": "Brittany", "last": "Pinnon", "phone": "+16183183716", "revenue": 85, "biz": "Pure & Free"}, {"first": "Stephanie", "last": "Pickett", "phone": "+12144188319", "revenue": 60, "biz": "Pure & Free"}, {"first": "Alicia", "last": "Gage", "phone": "+14692227993", "revenue": 50, "biz": "Crissy Bolt"}, {"first": "Kelly", "last": "Morrell", "phone": "+18477779945", "revenue": 50, "biz": "Scout & Cellar"}, {"first": "Stephanie", "last": "Needum", "phone": "+12149061963", "revenue": 50, "biz": "Crissy Bolt"}, {"first": "Cassie", "last": "Roche", "phone": "+14693584907", "revenue": 50, "biz": "Coaches Wives"}, {"first": "Lauren", "last": "Schafer", "phone": "+12145512691", "revenue": 50, "biz": "Crissy Bolt"}, {"first": "Courtney", "last": "Vest", "phone": "+19403681732", "revenue": 50, "biz": "Crissy Bolt"}, {"first": "Melanie", "last": "Vest", "phone": "+19404531135", "revenue": 50, "biz": "Hallock Dental"}, {"first": "Lauren", "last": "Grant", "phone": "+17138845745", "revenue": 45, "biz": "Coaches Wives"}, {"first": "Kayla", "last": "Stone", "phone": "+19726899079", "revenue": 45, "biz": "Coaches Wives"}, {"first": "Meg", "last": "Brown", "phone": "+14806501534", "revenue": 40, "biz": "Pure & Free"}, {"first": "Sharon", "last": "Silva", "phone": "+18172475097", "revenue": 20, "biz": "Scout & Cellar"}, {"first": "Becky", "last": "Walton", "phone": "+12144055780", "revenue": 20, "biz": "Peacock Petals"}];
+
+  function messageFor(d){
+    return "Hi " + d.first + "! It's " + SENDER_NAME + " 💛 Thank you again for supporting last year's event — donors like you helped raise real money for Gunter Tiger Football. This year's Blitz & Glitz Moms Night Out is Sun, Aug 23 at One Preston in Gunter, and we'd love for you (or your business) to be a sponsor again this year. Levels start at just $250 and every sponsor is featured on our site. Apply here: " + SPONSOR_LINK + " Thank you!";
+  }
+
+  function fmtMoney(n){ return "$" + n.toLocaleString(); }
+
+  function render(filterText){
+    const list = document.getElementById('list');
+    const q = (filterText || '').trim().toLowerCase();
+    list.innerHTML = '';
+    let shown = 0;
+    donors.forEach(function(d){
+      const full = (d.first + ' ' + d.last + ' ' + d.biz).toLowerCase();
+      if(q && full.indexOf(q) === -1) return;
+      shown++;
+      const row = document.createElement('div');
+      row.className = 'row';
+      const metaParts = [fmtMoney(d.revenue) + ' given last year'];
+      if(d.biz) metaParts.push('Team: ' + d.biz);
+      row.innerHTML =
+        '<div class="who">' +
+          '<div class="name">' + d.first + ' ' + d.last + '</div>' +
+          '<div class="meta"><span class="rev">' + metaParts[0] + '</span>' + (metaParts[1] ? ' &middot; ' + metaParts[1] : '') + '</div>' +
+        '</div>' +
+        '<a class="btn" target="_blank" href="sms:' + d.phone + '?body=' + encodeURIComponent(messageFor(d)) + '">Text Now</a>';
+      list.appendChild(row);
+    });
+    document.getElementById('count').textContent = shown + ' of ' + donors.length + ' donors';
+  }
+
+  function filterList(){
+    render(document.getElementById('search').value);
+  }
+
+  render('');
+</script>
+</body>
+</html>

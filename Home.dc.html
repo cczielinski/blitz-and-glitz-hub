@@ -80,11 +80,11 @@
 
   <section style="max-width:1180px;margin:0 auto;padding:50px 30px 18px;">
     <div style="text-align:center;margin-bottom:38px;">
-      <p style="letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">Six sections</p>
+      <p style="letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:#93A678;margin:0 0 6px;">Five sections</p>
       <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:32px;margin:0;color:#41503A;">Explore the hub</h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-      <sc-for list="{{ pages }}" as="p" hint-placeholder-count="6">
+      <sc-for list="{{ pages }}" as="p" hint-placeholder-count="5">
         <a href="{{ p.href }}" style="text-decoration:none;color:inherit;display:block;background:#fff;border:1px solid #E7DCC6;border-radius:6px;padding:30px 28px 26px;box-shadow:0 10px 30px rgba(90,110,70,.06);transition:transform .18s, box-shadow .18s;position:relative;" style-hover="transform:translateY(-5px);box-shadow:0 20px 42px rgba(90,110,70,.14);">
           <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
             <span style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:30px;color:{{ p.num }};line-height:1;">{{ p.idx }}</span>
@@ -144,7 +144,6 @@
             <div style="font-size:14px;color:#41503A;">GiveSmart</div>
           </div>
           <div style="display:flex;gap:10px;margin-top:3px;">
-            <a href="Style-Edit.html" style="flex:1;text-align:center;background:#fff;color:#6F8556;border:1px solid #93A678;border-radius:5px;padding:12px;font-size:11.5px;font-weight:400;letter-spacing:.08em;text-decoration:none;" style-hover="background:#EEF2E6;">Style Edit ↗</a>
             <a href="Vendor-Application.html" style="flex:1;text-align:center;background:#fff;color:#6F8556;border:1px solid #93A678;border-radius:5px;padding:12px;font-size:11.5px;font-weight:400;letter-spacing:.08em;text-decoration:none;" style-hover="background:#EEF2E6;">Vendor Form ↗</a>
           </div>
           <a href="Committee-Interest.html" style="text-align:center;background:#41503A;color:#FCF8F1;border-radius:5px;padding:13px;font-size:12px;font-weight:400;letter-spacing:.1em;text-decoration:none;" style-hover="background:#33402d;">✦ &nbsp;Join the Committee ↗</a>
@@ -186,9 +185,8 @@ class Component extends DCLogic {
         { idx: "01", num: "#6F8556", tag: "Essentials", href: "Event-and-Venue.dc.html", title: "Event & Venue", desc: "The overview, theme & look, One Preston venue notes, and what's happening on the night.", cta: "Open" },
         { idx: "02", num: "#D88C93", tag: "The Menu", href: "Food-and-Drinks.dc.html", title: "Food & Drinks", desc: "Camilla's catering plus the five wine-based signature sips and the venue's bar rules.", cta: "Open" },
         { idx: "03", num: "#9C854A", tag: "The Totes", href: "Swag-Bags.dc.html", title: "Swag Bags", desc: "Canvas totes, the custom patch, sponsorship terms, and the ten curated item options.", cta: "Open" },
-        { idx: "04", num: "#6F8556", tag: "The Partners", href: "Sponsors-and-Vendors.dc.html", title: "Sponsors & Vendors", desc: "The Style Edit program & tiers, vendor application, and grade-level table sponsors.", cta: "Open" },
+        { idx: "04", num: "#6F8556", tag: "The Partners", href: "Sponsors-and-Vendors.dc.html", title: "Sponsors & Vendors", desc: "Sponsorship tiers, vendor application, and grade-level table sponsors.", cta: "Open" },
         { idx: "05", num: "#D88C93", tag: "Logistics", href: "Planning.dc.html", title: "Planning", desc: "The full interactive checklist, run-of-show timeline, and committee roles to assign.", cta: "Open" },
-        { idx: "06", num: "#9C854A", tag: "Live page", href: "Style-Edit.html", title: "Style Edit Site", desc: "The public-facing sponsor directory guests scan and shop. Opens the live page.", cta: "View site" },
       ],
       palette: [
         { name: "Blush", hex: "#F2C6D1" },

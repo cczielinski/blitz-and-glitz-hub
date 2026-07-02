@@ -34,7 +34,7 @@ Styling ideas to keep on brand:
 - Gold and silver metallic accents on signage, balloons, and tableware
 - "Blitz and Glitz" plays on football ("blitz") + glamour ("glitz") — keep the glam front and center and the football reference light
 
-**Positioning note:** Frame this as a **community event** for local moms, not a football team fundraiser. The team still benefits, but the messaging, decor, and vendor mix should feel like a fun night out for the whole Gunter community rather than a sports event. This also widens the appeal for sponsors and vendors.
+**Positioning note:** Frame this as a **community event** for local moms, not a football team fundraiser. The team still benefits, but the messaging and decor should feel like a fun night out for the whole Gunter community rather than a sports event. This also widens the appeal for sponsors.
 
 ---
 
@@ -47,9 +47,9 @@ Based on the photos provided:
 - **Large windows** and lots of natural light; **polished concrete floors**.
 - A **loft/upper level** overlooking the main hall.
 - Built-in **console/bar-height surface** along one wall and a **farmhouse table tucked under the staircase** — good spots for check-in, swag bags, or a drink station.
-- Open floor plan with room to flex between seated dinner, vendor booths, and mingling.
+- Open floor plan with room to flex between seated dinner and mingling.
 
-**Layout to figure out:** where dinner seating vs. vendor tables vs. bar/drinks vs. raffle/prize display will go.
+**Layout to figure out:** where dinner seating vs. bar/drinks vs. raffle/prize display will go.
 
 ---
 
@@ -57,10 +57,9 @@ Based on the photos provided:
 
 - **Dinner & drinks** — **Camilla's (Gunter, TX) is donating** Mexican food with appetizers, water, and tea.
 - **Bar (venue rules)** — must use **One Preston's bartenders**. **Beer, wine, and champagne ONLY — no liquor.** Both **specialty drinks must be wine-based** (e.g., wine spritzers, sangria, champagne cocktails).
-- **Swag bags** — **canvas tote bags with a custom patch**, one per attendee; fill with vendor samples + sponsor goodies. Idea: **printed ponchos for game days** as a featured item.
-  - **Vendor swag bag sponsorship:** **$250 + the cost of the items** included in the bags. Sponsors can **choose from 10 curated items** the committee offers, or **provide their own item with committee approval**.
+- **Swag bags** — **canvas tote bags with a custom patch**, one per attendee; fill with sponsor goodies. Idea: **printed ponchos for game days** as a featured item.
+  - **Tiger Pride Sponsor swag bag sponsorship:** **$250 + the cost of the items** included in the bags — one of the standard sponsorship levels, not a separate product. Sponsors can **choose from 10 curated items** the committee offers, or **provide their own item with committee approval**.
 - **Door prizes** — drawn throughout the night
-- **Vendors** — local vendor booths (revenue share or flat booth fee?)
 - **Raffles** — raffle baskets / prizes with ticket sales
 - **GiveSmart** — fundraising platform for ticketing, raffles, donations, and checkout
 
@@ -85,30 +84,9 @@ Sponsors choose one of these to brand and include in every tote (or provide thei
 
 ---
 
-## Blitz & Glitz Style Edit (digital sponsor directory)
+## Blitz & Glitz Style Edit (discontinued)
 
-A curated online guide featuring favorite local boutiques, businesses, and game-day essentials. Positions the event as connecting Gunter moms with local businesses — modern, upscale, and valuable long after the event. Every featured business supports Gunter Football; every purchase made with a Blitz & Glitz code gives back. *(See `Style-Edit-Website.html`.)*
-
-**How it works**
-
-- **Before** — businesses buy a Style Edit sponsorship: website feature, logo, spotlight, direct link, 3–5 featured products, exclusive discount code, social mentions.
-- **During** — QR codes on every table, in every swag bag, and on event signage; guests scan and browse all evening.
-- **After** — each business shares a custom code (e.g., BLITZ10, GUNTER10, TIGERS10, GLITZ10) that gives shoppers a discount, **tracks sales** generated through Blitz & Glitz, and lets businesses **donate a percentage back** to Gunter Football. Fundraiser continues for weeks.
-
-**Categories (beyond boutiques):** Game Day Fashion (boutiques, jewelry, hat bars) · Beauty & Self Care (med spas, salons, permanent jewelry, spray tans) · Home & Gifts (decor, florists, gift shops) · Food & Entertainment (restaurants, coffee shops, bakeries) · Services (realtors, insurance, financial advisors, fitness studios).
-
-**Sponsorship tiers**
-
-| Tier | Price | Includes |
-|---|---|---|
-| **Title Style Edit Sponsor** | $1,000 | Top placement, featured email spotlight, social reel feature, event signage, premium product placement |
-| **Gold Style Edit Partner** | $500 | Large listing, product features, social spotlight |
-| **Silver Style Edit Partner** | $250 | Website listing, logo placement, discount code listing |
-| **Community Partner** | $100 | Business directory listing |
-
-**Key benefit:** measurable ROI — sponsors see exactly how many sales came from their code. Becomes a year-round digital sponsor directory rather than a one-night vendor fair.
-
-**To-do:** recruit Style Edit sponsors · collect logos, products, links, codes · set up code tracking · generate the QR code (links to the live site) · publish/host the site · schedule social mentions.
+*Discontinued — the digital sponsor directory concept is not being used for this year's event. The old `Style-Edit-Website.html` reference page has been gutted to a simple "discontinued" notice and is not linked anywhere on the site.*
 
 ---
 
@@ -140,11 +118,11 @@ Champagne or Prosecco + fresh raspberry puree. Simple, elegant, pretty.
 | Grade | Sponsor |
 |---|---|
 | 12th | Ruby Valenzuela |
-| 11th | Krissy Bolt |
-| 10th | Erika Hallock |
+| 11th | Krissy Bolt & Allison Gutschlag |
+| 10th | Erika Hallock, Cindy Hill & Melanie Vest |
 | 9th | Gara Little |
-| 8th | Christina Zillenski |
-| 7th | Valerie Standridge & Alicia Gage |
+| 8th | Christina Zillenski & Jamie Kimball |
+| 7th | Valerie Standridge, Alicia Gage & Nicki Fletcher |
 | Alumni Chair | Melinda Peacock |
 
 ---
@@ -166,17 +144,12 @@ Champagne or Prosecco + fresh raspberry puree. Simple, elegant, pretty.
 - [ ] Coordinate **bar service** with One Preston (bartender count, hours, who supplies alcohol, pricing/cash bar vs. tickets)
 - [ ] Confirm venue rules on outside food, cleanup
 
-### Vendors
-- [ ] Create **vendor application** + booth fee structure
-- [ ] Recruit & confirm **vendors** (aim for variety, avoid duplicates)
-- [ ] Assign **booth spaces** and collect setup needs (tables, power)
-
 ### Swag Bags
 - [ ] Source **canvas tote bags** + design/order the **custom patch**
-- [ ] Source/print **game-day ponchos** (sizing, color, quantity, vendor)
+- [ ] Source/print **game-day ponchos** (sizing, color, quantity, supplier)
 - [x] Finalize the **10 curated item options** sponsors can choose from (see list below)
-- [ ] Set up **swag bag sponsorship** ($250 + item cost) sales/tracking in GiveSmart
-- [ ] Define **committee approval process** for vendor-provided items
+- [ ] Set up **Tiger Pride Sponsor** ($250 + item cost) sales/tracking in GiveSmart
+- [ ] Define **committee approval process** for sponsor-provided items
 - [ ] Confirm **quantity** (tie to ticket capacity)
 - [ ] Set **fill date** and assembly volunteers
 
@@ -217,12 +190,12 @@ Champagne or Prosecco + fresh raspberry puree. Simple, elegant, pretty.
 
 | Time | What |
 |---|---|
-| *T–2 hrs* | Volunteer arrival, setup, vendor load-in |
+| *T–2 hrs* | Volunteer arrival, setup, load-in |
 | *T–30 min* | Final walkthrough, music on, check-in ready |
-| *Doors* | Guests arrive, check-in, receive swag bag, mingle/shop vendors |
+| *Doors* | Guests arrive, check-in, receive swag bag, mingle |
 | *+45 min* | Dinner served |
 | *During dinner* | Welcome remarks, thank sponsors & Camilla's, community/cause note |
-| *After dinner* | Raffle & door prize drawings, vendor shopping continues |
+| *After dinner* | Raffle & door prize drawings continue |
 | *Close* | Final drawings, thank-yous, teardown |
 
 ---
@@ -230,7 +203,6 @@ Champagne or Prosecco + fresh raspberry puree. Simple, elegant, pretty.
 ## Roles to Assign
 
 - **Event lead / chair** — owns the whole event
-- **Vendor coordinator** — recruits and manages vendors
 - **Sponsorship lead** — secures donations and sponsors
 - **Swag bag lead** — sourcing + assembly
 - **Raffle/prizes lead** — donations, ticket sales, drawings
@@ -248,10 +220,9 @@ Champagne or Prosecco + fresh raspberry puree. Simple, elegant, pretty.
 2. **Fundraising goal** and where funds go (community framing — confirm how proceeds are described and distributed)?
 3. **Capacity** — how many moms / tables can the venue seat?
 4. **Specialty drinks** — which two wine-based drinks? Who supplies/pays for the alcohol, and is it a cash bar, drink tickets, or hosted?
-5. **Vendor model** — flat booth fee, donation, or revenue share?
-6. **Raffle vs. door prizes** — how are they differentiated (paid tickets vs. free draw)?
-7. **Who's on the committee** and who owns each role above (incl. GiveSmart lead)?
-8. **Swag bag quantities** — how many totes, patches, and ponchos to order?
+5. **Raffle vs. door prizes** — how are they differentiated (paid tickets vs. free draw)?
+6. **Who's on the committee** and who owns each role above (incl. GiveSmart lead)?
+7. **Swag bag quantities** — how many totes, patches, and ponchos to order?
 
 ---
 
