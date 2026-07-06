@@ -6,23 +6,9 @@
 <title>Blitz &amp; Glitz — Sponsor Interest Form</title>
 
 <!--
-========================================================================
-  SETUP — READ BEFORE PUBLISHING (then delete this comment)
-========================================================================
-  This form needs a free form-handler to receive submissions by email /
-  spreadsheet. Easiest option: Formspree (https://formspree.io).
-
-  1. Create a free Formspree account and a new form.
-  2. Copy your form endpoint (looks like https://formspree.io/f/abcdwxyz).
-  3. Replace YOUR_FORM_ID below in the <form action="..."> tag.
-  4. Upload this .html file alongside the rest of the site (it uses the
-     same nav, stripe, and responsive.css as every other page).
-
-  No-code alternative: rebuild the same fields as a Google Form instead.
-
-  Once this page is live at a real URL, update the SPONSOR_LINK at the
-  top of Donor-Text-Launcher.html to point here.
-========================================================================
+  This form submits straight into the "SPONSOR INTEREST FORM" tab of the
+  2026 Blitz and Glitz Google Sheet, via the Apps Script Web App defined
+  in Apps-Script-Sponsor-Form.gs.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,10 +136,10 @@
 <!-- FORM SECTION -->
 <section style="max-width:1060px;margin:0 auto;padding:44px 30px 10px;">
   <div class="card" style="padding:36px 40px;">
-    <div id="formError">Sorry, something went wrong submitting your application. Please try again, or email us directly at <a href="mailto:chris@proadinc.com" style="color:#B36A73;text-decoration:underline;">chris@proadinc.com</a>.</div>
+    <div id="formError">Sorry, something went wrong submitting your form. Please try again, or email us directly at <a href="mailto:chris@proadinc.com" style="color:#B36A73;text-decoration:underline;">chris@proadinc.com</a>.</div>
 
-    <!-- Replace YOUR_FORM_ID with your Formspree endpoint (see setup note at top of file) -->
-    <form id="sponsorForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <!-- Replace with your deployed Apps Script Web App URL (see setup note at top of file) -->
+    <form id="sponsorForm" action="https://script.google.com/macros/s/AKfycbw2vfBIoS3NFc8NcMD43qaF1fMSFB-lmwzf-FGl8rVvT536omd4aY_wzDPb1iShyqBKbg/exec" method="POST">
 
       <!-- ============ SECTION 1 ============ -->
       <div class="section">
@@ -319,7 +305,7 @@
     <div id="thankYou">
       <div class="icon">&#10003;</div>
       <h2>Thank you for supporting Blitz &amp; Glitz!</h2>
-      <p>Your sponsorship application has been received. We&rsquo;re so grateful for your support of Gunter Tiger Football.</p>
+      <p>Your sponsorship submission has been received. We&rsquo;re so grateful for your support of Gunter Tiger Football.</p>
       <p>We&rsquo;ll follow up by email to confirm your level and payment details.</p>
       <a href="Home.html" class="btn-primary">Back to the Hub</a>
       <p class="fineprint">Questions in the meantime? Email <a href="mailto:chris@proadinc.com" style="color:#829840;">chris@proadinc.com</a>.</p>
@@ -343,20 +329,18 @@
     var submitBtn = form.querySelector('.btn-primary');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
+    // Google Apps Script Web Apps don't reliably expose a readable
+    // cross-origin response, so we submit with mode:'no-cors' and treat
+    // "the request didn't throw" as success — this is the standard,
+    // reliable pattern for posting an HTML form into a Google Sheet.
     fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function (response) {
-      if (response.ok) {
-        form.style.display = 'none';
-        thankYou.style.display = 'block';
-        thankYou.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        errorBox.style.display = 'block';
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Sponsorship';
-      }
+      mode: 'no-cors',
+      body: new FormData(form)
+    }).then(function () {
+      form.style.display = 'none';
+      thankYou.style.display = 'block';
+      thankYou.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }).catch(function () {
       errorBox.style.display = 'block';
       submitBtn.disabled = false;
