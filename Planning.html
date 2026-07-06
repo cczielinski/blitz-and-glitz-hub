@@ -37,6 +37,43 @@
 </head>
 <body>
 
+<!-- PASSCODE GATE -->
+<div id="pcGate" style="position:fixed;inset:0;z-index:99999;background:#F7F2E6;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;">
+  <div style="max-width:360px;width:90%;background:#fff;border:1px solid #EAE0D0;border-radius:10px;padding:36px 32px;box-shadow:0 20px 50px rgba(74,90,61,.15);text-align:center;">
+    <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:24px;color:#4A5A3D;margin-bottom:6px;">Blitz <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
+    <p style="font-size:13px;color:#8A9A7A;margin:0 0 20px;">Committee Hub &mdash; enter the passcode to continue</p>
+    <input id="pcInput" type="password" inputmode="numeric" autocomplete="off" placeholder="Passcode" style="width:100%;font-size:16px;padding:12px 14px;border:1px solid #D5C9B3;border-radius:6px;text-align:center;letter-spacing:.15em;margin-bottom:12px;box-sizing:border-box;">
+    <button id="pcSubmit" style="width:100%;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:12px;font-size:14px;font-weight:400;letter-spacing:.05em;cursor:pointer;">Enter</button>
+    <p id="pcError" style="display:none;color:#B36A73;font-size:12.5px;margin:12px 0 0;">Incorrect passcode &mdash; please try again.</p>
+  </div>
+</div>
+<script>
+(function(){
+  // No storage of any kind on purpose: the passcode is required on every
+  // single page load, for every visitor, with nothing remembered between
+  // visits or shared across devices/users.
+  var CODE = "1234";
+  document.body.style.overflow = 'hidden';
+  var input = document.getElementById('pcInput');
+  var btn = document.getElementById('pcSubmit');
+  var err = document.getElementById('pcError');
+  function tryUnlock(){
+    if (input.value === CODE) {
+      document.getElementById('pcGate').remove();
+      document.body.style.overflow = '';
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+  setTimeout(function(){ input.focus(); }, 50);
+})();
+</script>
+<!-- END PASSCODE GATE -->
+
 <nav>
   <div class="nav-inner">
     <a href="Home.html" class="nav-brand">
