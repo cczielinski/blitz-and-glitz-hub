@@ -22,16 +22,28 @@
   .stripe{height:8px;margin-top:20px;background:url('assets/stripes-butter.jpeg');background-size:auto 8px;}
   footer{background:#4A5A3D;color:#E8EDDF;text-align:center;padding:24px 22px;}
 
-  .event-card{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:20px 22px;box-shadow:0 8px 24px rgba(74,90,61,.05);display:flex;gap:20px;align-items:center;}
-  .event-date{flex:none;width:74px;text-align:center;background:#F8F5F0;border-radius:6px;padding:10px 4px;}
-  .event-date .mon{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B36A73;font-weight:500;}
-  .event-date .day{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;color:#4A5A3D;line-height:1.1;}
-  .event-body{flex:1;min-width:0;}
-  .event-title{font-family:'Playfair Display',serif;font-weight:600;font-size:17px;color:#4A5A3D;margin:0 0 4px;}
-  .event-meta{font-size:12.5px;color:#8A9A7A;margin:0 0 2px;}
-  .event-btn{flex:none;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:10px 18px;font-size:12.5px;font-weight:400;letter-spacing:.04em;cursor:pointer;white-space:nowrap;font-family:'Poppins',sans-serif;}
-  .event-btn:hover{background:#3a4830;}
-  .empty-note{background:#F8F5F0;border:1px dashed #D5C9B3;border-radius:8px;padding:24px;text-align:center;color:#8A9A7A;font-size:13.5px;}
+  .sub-card{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:22px 24px;box-shadow:0 8px 24px rgba(74,90,61,.06);}
+  .sub-btn{display:inline-flex;align-items:center;gap:8px;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:12px 22px;font-size:13.5px;font-weight:400;letter-spacing:.03em;cursor:pointer;text-decoration:none;font-family:'Poppins',sans-serif;}
+  .sub-btn:hover{background:#3a4830;}
+  .sub-btn.secondary{background:#fff;color:#4A5A3D;border:1px solid #B36A73;}
+  .platform-steps{font-size:12.5px;color:#8A9A7A;margin-top:4px;}
+  .platform-steps b{color:#4A5A3D;font-weight:500;}
+
+  .cal-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .cal-month{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:18px 20px 20px;box-shadow:0 8px 24px rgba(74,90,61,.05);}
+  .cal-month h3{font-family:'Playfair Display',serif;font-weight:600;font-size:18px;color:#4A5A3D;margin:0 0 12px;text-align:center;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+  .cal-dow{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#829840;text-align:center;padding-bottom:4px;font-weight:500;}
+  .cal-cell{aspect-ratio:1/1;border-radius:5px;background:#F8F5F0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;color:#4A5A3D;position:relative;min-height:38px;}
+  .cal-cell.empty{background:transparent;}
+  .cal-cell.past{opacity:.35;}
+  .cal-cell.today{background:#EDE688;font-weight:600;box-shadow:inset 0 0 0 1.5px #9C854A;}
+  .cal-cell.meeting{background:#F2C6D1;font-weight:500;}
+  .cal-cell.event-day{background:#829840;color:#fff;font-weight:700;box-shadow:0 4px 10px rgba(130,152,64,.4);}
+  .cal-dot{width:4px;height:4px;border-radius:999px;background:#B36A73;position:absolute;bottom:3px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:#8A9A7A;margin-top:14px;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
 </style>
 <link rel="stylesheet" href="responsive.css">
 </head>
@@ -98,29 +110,46 @@
   <div style="max-width:1060px;margin:0 auto;">
     <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#829840;margin:0 0 14px;">Committee &amp; Team Reference</p>
     <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:38px;line-height:1.02;margin:0;color:#4A5A3D;">Calendar</h1>
-    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#8A9A7A;">Committee meetings and working sessions. Tap <span style="color:#4A5A3D;font-weight:500;">Add to Calendar</span> on any event to save it &mdash; it works on both iPhone and Android.</p>
+    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#8A9A7A;">Committee meetings and working sessions, at a glance, through the event on August 23.</p>
   </div>
 </header>
 
-<!-- HOW IT WORKS -->
+<!-- SUBSCRIBE -->
 <section style="max-width:1060px;margin:0 auto;padding:30px 30px 0;">
-  <div style="background:#F8F5F0;border-radius:8px;padding:16px 20px;font-size:13px;color:#6B7A5A;display:flex;gap:12px;align-items:flex-start;">
-    <span style="flex:none;font-size:16px;">📅</span>
-    <span><b style="color:#4A5A3D;font-weight:500;">How it works:</b> each "Add to Calendar" button downloads a standard calendar file (.ics). Open the download on an iPhone and it offers to add the event straight into Calendar; on Android it opens through Google Calendar (or whichever calendar app is set as default). No app or account needed on our end.</span>
+  <div class="sub-card">
+    <p style="letter-spacing:.26em;text-transform:uppercase;font-size:9.5px;color:#829840;margin:0 0 10px;">Recommended</p>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:0 0 8px;color:#4A5A3D;">Subscribe once, stay in sync automatically</h2>
+    <p style="font-size:13.5px;color:#8A9A7A;margin:0 0 16px;max-width:640px;">Subscribing adds this calendar to your phone permanently. Any meeting the committee adds later shows up on your calendar on its own &mdash; no need to tap "add" every time.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+      <a class="sub-btn" href="webcal://YOURDOMAIN.com/calendar.ics">Subscribe (iPhone / Apple Calendar)</a>
+      <a class="sub-btn secondary" href="https://calendar.google.com/calendar/r?cid=https://YOURDOMAIN.com/calendar.ics">Subscribe (Google Calendar)</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="platform-steps">
+        <b>iPhone:</b> tap "Subscribe (iPhone)" above &rarr; Settings will offer to add it as a subscribed calendar &rarr; Add. (Or: Settings &rarr; Calendar &rarr; Accounts &rarr; Add Account &rarr; Other &rarr; Add Subscribed Calendar &rarr; paste the link below.)
+      </div>
+      <div class="platform-steps">
+        <b>Android / Google Calendar:</b> tap "Subscribe (Google Calendar)" above, or on desktop go to Google Calendar &rarr; Other calendars (+) &rarr; From URL &rarr; paste the link below.
+      </div>
+    </div>
+    <p style="font-size:11.5px;color:#A9AE97;margin:14px 0 0;word-break:break-all;">Direct link: https://YOURDOMAIN.com/calendar.ics <span style="color:#b8722f;">(update YOURDOMAIN.com once the site is live at its real address)</span></p>
   </div>
 </section>
 
-<!-- EVENTS LIST -->
+<!-- AT-A-GLANCE CALENDAR -->
 <section style="max-width:1060px;margin:0 auto;padding:26px 30px 10px;">
-  <div id="eventsContainer" style="display:flex;flex-direction:column;gap:14px;">
-    <!-- Populated by JS -->
+  <div class="cal-wrap" id="calWrap"><!-- Populated by JS --></div>
+  <div class="legend">
+    <span><i style="background:#829840;"></i> Blitz &amp; Glitz event day</span>
+    <span><i style="background:#F2C6D1;"></i> Committee meeting</span>
+    <span><i style="background:#EDE688;box-shadow:inset 0 0 0 1.5px #9C854A;"></i> Today</span>
   </div>
 </section>
 
 <!-- HOW TO ADD MORE -->
 <section style="max-width:1060px;margin:0 auto;padding:10px 30px 40px;">
   <div style="border-top:1px solid #EAE0D0;padding-top:18px;font-size:12.5px;color:#A9AE97;">
-    Need a meeting added? Just tell Claude the date, time, and location (e.g. &ldquo;add a committee meeting Aug 12 at 6pm at the school library&rdquo;) and it'll show up here for everyone.
+    Need a meeting added? Just tell Claude the date, time, and location (e.g. &ldquo;add a committee meeting Aug 12 at 6pm at the school library&rdquo;) &mdash; it'll show up on this calendar and sync automatically to anyone subscribed.
   </div>
 </section>
 
@@ -132,99 +161,52 @@
 
 <script>
 // ============================================================
-// MEETINGS — edit this list to add, change, or remove events.
-// start/end use local time in "YYYY-MM-DDTHH:MM" format.
+// MEETINGS — edit this list to add/change events shown on the
+// grid below. Keep calendar.ics (the subscribe feed) in sync
+// with this list — ask Claude to update both together.
 // ============================================================
 const MEETINGS = [
-  // Example placeholder — replace or remove once real meetings are set.
-  {
-    title: "Committee Planning Meeting (example — TBD)",
-    location: "One Preston, Gunter, TX",
-    description: "Blitz & Glitz committee working session. Replace this placeholder with your first real meeting.",
-    start: "2026-07-20T18:00",
-    end: "2026-07-20T19:00",
-    placeholder: true
-  }
+  { date: "2026-07-20", title: "Committee Planning Meeting (example — TBD)" }
 ];
+const EVENT_DAY = "2026-08-23"; // Blitz & Glitz
 
-const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+const DOW = ["S","M","T","W","T","F","S"];
+const today = new Date(); today.setHours(0,0,0,0);
 
-function pad(n){ return n < 10 ? '0' + n : '' + n; }
+function buildMonth(year, monthIndex0, lastDay){
+  const first = new Date(year, monthIndex0, 1);
+  const startOffset = first.getDay();
+  const daysInMonth = lastDay || new Date(year, monthIndex0 + 1, 0).getDate();
+  const monthName = first.toLocaleDateString(undefined, { month: 'long' });
 
-function toICSDate(dtStr){
-  const d = new Date(dtStr);
-  return d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00';
+  let cells = '';
+  for (let i = 0; i < startOffset; i++) cells += '<div class="cal-cell empty"></div>';
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const cellDate = new Date(year, monthIndex0, d);
+    const iso = year + '-' + String(monthIndex0+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    let cls = 'cal-cell';
+    let dot = '';
+    if (cellDate < today) cls += ' past';
+    if (iso === todayISO()) cls += ' today';
+    if (iso === EVENT_DAY) cls += ' event-day';
+    else if (MEETINGS.some(m => m.date === iso)) { cls += ' meeting'; }
+    cells += '<div class="' + cls + '" title="' + (MEETINGS.filter(m=>m.date===iso).map(m=>m.title).join(', ')) + '">' + d + dot + '</div>';
+  }
+
+  return '<div class="cal-month"><h3>' + monthName + ' ' + year + '</h3><div class="cal-grid">' +
+    DOW.map(d => '<div class="cal-dow">' + d + '</div>').join('') +
+    cells +
+    '</div></div>';
 }
 
-function escapeICS(str){
-  return String(str).replace(/[\\,;]/g, '\\$&').replace(/\n/g, '\\n');
+function todayISO(){
+  return today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
 }
 
-function downloadICS(ev){
-  const now = new Date();
-  const stamp = now.getFullYear() + pad(now.getMonth()+1) + pad(now.getDate()) + 'T' + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + 'Z';
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Blitz and Glitz//Committee Hub//EN',
-    'CALSCALE:GREGORIAN',
-    'BEGIN:VEVENT',
-    'UID:' + now.getTime() + '-bgcommittee@blitzandglitz',
-    'DTSTAMP:' + stamp,
-    'DTSTART:' + toICSDate(ev.start),
-    'DTEND:' + toICSDate(ev.end),
-    'SUMMARY:' + escapeICS(ev.title),
-    'DESCRIPTION:' + escapeICS(ev.description || ''),
-    'LOCATION:' + escapeICS(ev.location || ''),
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ];
-  const ics = lines.join('\r\n');
-  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = ev.title.replace(/[^a-z0-9]/gi, '_').slice(0, 60) + '.ics';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
-}
-
-function formatMeta(ev){
-  const s = new Date(ev.start);
-  const e = new Date(ev.end);
-  const opts = { hour: 'numeric', minute: '2-digit' };
-  const timeStr = s.toLocaleTimeString([], opts) + '–' + e.toLocaleTimeString([], opts);
-  return timeStr + (ev.location ? ' · ' + ev.location : '');
-}
-
-const container = document.getElementById('eventsContainer');
-
-if (!MEETINGS.length) {
-  container.innerHTML = '<div class="empty-note">No meetings scheduled yet. Ask Claude to add one, or edit the MEETINGS list in this file.</div>';
-} else {
-  MEETINGS.sort(function(a, b){ return new Date(a.start) - new Date(b.start); });
-  MEETINGS.forEach(function(ev, i){
-    const s = new Date(ev.start);
-    const card = document.createElement('div');
-    card.className = 'event-card';
-    if (ev.placeholder) card.style.opacity = '0.7';
-    card.innerHTML = `
-      <div class="event-date">
-        <div class="mon">${MONTHS[s.getMonth()]}</div>
-        <div class="day">${s.getDate()}</div>
-      </div>
-      <div class="event-body">
-        <div class="event-title">${ev.title}</div>
-        <div class="event-meta">${formatMeta(ev)}</div>
-      </div>
-      <button class="event-btn" data-idx="${i}">Add to Calendar</button>
-    `;
-    card.querySelector('.event-btn').addEventListener('click', function(){ downloadICS(ev); });
-    container.appendChild(card);
-  });
-}
+document.getElementById('calWrap').innerHTML =
+  buildMonth(2026, 6) +  // July 2026
+  buildMonth(2026, 7);   // August 2026
 </script>
 </body>
 </html>
