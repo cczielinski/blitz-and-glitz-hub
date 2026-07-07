@@ -17,12 +17,11 @@ LOCATION:One Preston, Gunter, TX
 DESCRIPTION:Blitz & Glitz fundraiser benefiting the Gunter Tiger Football Club Booster (501(c)(3)).
 END:VEVENT
 BEGIN:VEVENT
-UID:meeting-example-2026-07-20@blitzandglitz
-DTSTAMP:20260707T205457Z
-DTSTART:20260720T180000
-DTEND:20260720T190000
-SUMMARY:Committee Planning Meeting (example — TBD)
-LOCATION:One Preston, Gunter, TX
-DESCRIPTION:Blitz & Glitz committee working session. Replace this placeholder with your first real meeting.
+UID:meeting-givesmart-2026-07-08@blitzandglitz
+DTSTAMP:20260707T211635Z
+DTSTART:20260708T080000
+DTEND:20260708T090000
+SUMMARY:GiveSmart Meeting
+DESCRIPTION:Kaeley Duncan & Chris Zielinski
 END:VEVENT
 END:VCALENDAR
