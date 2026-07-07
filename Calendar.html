@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blitz &amp; Glitz — Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Poppins',sans-serif;font-weight:300;color:#4A5A3D;background:#FFFFFF;min-height:100vh;line-height:1.7;}
+  a{color:inherit;}
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid #E2D9C8;}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:0 30px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;color:#4A5A3D;text-decoration:none;display:flex;align-items:center;gap:12px;white-space:nowrap;}
+  .nav-links{display:flex;gap:22px;font-size:13px;font-weight:400;align-items:center;}
+  .nav-links a{color:#6B7A5A;text-decoration:none;}
+  .nav-links a:hover{color:#829840;}
+  .nav-links a.active{color:#829840;border-bottom:1px solid #829840;padding-bottom:2px;}
+  .stripe{height:8px;margin-top:20px;background:url('assets/stripes-butter.jpeg');background-size:auto 8px;}
+  footer{background:#4A5A3D;color:#E8EDDF;text-align:center;padding:24px 22px;}
+
+  .event-card{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:20px 22px;box-shadow:0 8px 24px rgba(74,90,61,.05);display:flex;gap:20px;align-items:center;}
+  .event-date{flex:none;width:74px;text-align:center;background:#F8F5F0;border-radius:6px;padding:10px 4px;}
+  .event-date .mon{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B36A73;font-weight:500;}
+  .event-date .day{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;color:#4A5A3D;line-height:1.1;}
+  .event-body{flex:1;min-width:0;}
+  .event-title{font-family:'Playfair Display',serif;font-weight:600;font-size:17px;color:#4A5A3D;margin:0 0 4px;}
+  .event-meta{font-size:12.5px;color:#8A9A7A;margin:0 0 2px;}
+  .event-btn{flex:none;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:10px 18px;font-size:12.5px;font-weight:400;letter-spacing:.04em;cursor:pointer;white-space:nowrap;font-family:'Poppins',sans-serif;}
+  .event-btn:hover{background:#3a4830;}
+  .empty-note{background:#F8F5F0;border:1px dashed #D5C9B3;border-radius:8px;padding:24px;text-align:center;color:#8A9A7A;font-size:13.5px;}
+</style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+<!-- PASSCODE GATE -->
+<div id="pcGate" style="position:fixed;inset:0;z-index:99999;background:#F7F2E6;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;">
+  <div style="max-width:360px;width:90%;background:#fff;border:1px solid #EAE0D0;border-radius:10px;padding:36px 32px;box-shadow:0 20px 50px rgba(74,90,61,.15);text-align:center;">
+    <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:24px;color:#4A5A3D;margin-bottom:6px;">Blitz <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
+    <p style="font-size:13px;color:#8A9A7A;margin:0 0 20px;">Committee Hub &mdash; enter the passcode to continue</p>
+    <input id="pcInput" type="password" inputmode="numeric" autocomplete="off" placeholder="Passcode" style="width:100%;font-size:16px;padding:12px 14px;border:1px solid #D5C9B3;border-radius:6px;text-align:center;letter-spacing:.15em;margin-bottom:12px;box-sizing:border-box;">
+    <button id="pcSubmit" style="width:100%;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:12px;font-size:14px;font-weight:400;letter-spacing:.05em;cursor:pointer;">Enter</button>
+    <p id="pcError" style="display:none;color:#B36A73;font-size:12.5px;margin:12px 0 0;">Incorrect passcode &mdash; please try again.</p>
+  </div>
+</div>
+<script>
+(function(){
+  // No storage of any kind on purpose: the passcode is required on every
+  // single page load, for every visitor, with nothing remembered between
+  // visits or shared across devices/users.
+  var CODE = "1234";
+  document.body.style.overflow = 'hidden';
+  var input = document.getElementById('pcInput');
+  var btn = document.getElementById('pcSubmit');
+  var err = document.getElementById('pcError');
+  function tryUnlock(){
+    if (input.value === CODE) {
+      document.getElementById('pcGate').remove();
+      document.body.style.overflow = '';
+    } else {
+      err.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+  setTimeout(function(){ input.focus(); }, 50);
+})();
+</script>
+<!-- END PASSCODE GATE -->
+
+<nav>
+  <div class="nav-inner">
+    <a href="Home.html" class="nav-brand">
+      Blitz <span style="color:#9C854A;font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:500;">&amp;</span> Glitz
+      <span style="font-family:'Poppins',sans-serif;font-weight:400;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#829840;border-left:1px solid #D5C9B3;padding-left:12px;">Committee Hub</span>
+    </a>
+    <div class="nav-links">
+      <a href="Home.html">Home</a>
+      <a href="Event-and-Venue.html">Event &amp; Venue</a>
+      <a href="Food-and-Drinks.html">Food &amp; Drinks</a>
+      <a href="Swag-Bags.html">Swag Bags</a>
+      <a href="Sponsors.html">Sponsors</a>
+      <a href="Planning.html">Planning</a>
+      <a href="Calendar.html" class="active">Calendar</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header style="padding:36px 24px 26px;background:linear-gradient(rgba(255,255,255,.84),rgba(255,255,255,.92)),url('assets/floral.jpeg');background-size:auto,520px;background-position:center;border-bottom:1px solid #E2D9C8;">
+  <div style="max-width:1060px;margin:0 auto;">
+    <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#829840;margin:0 0 14px;">Committee &amp; Team Reference</p>
+    <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:38px;line-height:1.02;margin:0;color:#4A5A3D;">Calendar</h1>
+    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#8A9A7A;">Committee meetings and working sessions. Tap <span style="color:#4A5A3D;font-weight:500;">Add to Calendar</span> on any event to save it &mdash; it works on both iPhone and Android.</p>
+  </div>
+</header>
+
+<!-- HOW IT WORKS -->
+<section style="max-width:1060px;margin:0 auto;padding:30px 30px 0;">
+  <div style="background:#F8F5F0;border-radius:8px;padding:16px 20px;font-size:13px;color:#6B7A5A;display:flex;gap:12px;align-items:flex-start;">
+    <span style="flex:none;font-size:16px;">📅</span>
+    <span><b style="color:#4A5A3D;font-weight:500;">How it works:</b> each "Add to Calendar" button downloads a standard calendar file (.ics). Open the download on an iPhone and it offers to add the event straight into Calendar; on Android it opens through Google Calendar (or whichever calendar app is set as default). No app or account needed on our end.</span>
+  </div>
+</section>
+
+<!-- EVENTS LIST -->
+<section style="max-width:1060px;margin:0 auto;padding:26px 30px 10px;">
+  <div id="eventsContainer" style="display:flex;flex-direction:column;gap:14px;">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- HOW TO ADD MORE -->
+<section style="max-width:1060px;margin:0 auto;padding:10px 30px 40px;">
+  <div style="border-top:1px solid #EAE0D0;padding-top:18px;font-size:12.5px;color:#A9AE97;">
+    Need a meeting added? Just tell Claude the date, time, and location (e.g. &ldquo;add a committee meeting Aug 12 at 6pm at the school library&rdquo;) and it'll show up here for everyone.
+  </div>
+</section>
+
+<div class="stripe"></div>
+<footer>
+  <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;">Blitz <span style="color:#C3AE7A;font-style:italic;font-family:'Cormorant Garamond',serif;">&amp;</span> Glitz</div>
+  <p style="margin:10px 0 0;font-size:13px;color:#B7C89B;"><a href="Home.html" style="color:#C3AE7A;text-decoration:none;">&larr; Back to the hub</a></p>
+</footer>
+
+<script>
+// ============================================================
+// MEETINGS — edit this list to add, change, or remove events.
+// start/end use local time in "YYYY-MM-DDTHH:MM" format.
+// ============================================================
+const MEETINGS = [
+  // Example placeholder — replace or remove once real meetings are set.
+  {
+    title: "Committee Planning Meeting (example — TBD)",
+    location: "One Preston, Gunter, TX",
+    description: "Blitz & Glitz committee working session. Replace this placeholder with your first real meeting.",
+    start: "2026-07-20T18:00",
+    end: "2026-07-20T19:00",
+    placeholder: true
+  }
+];
+
+const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+
+function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+function toICSDate(dtStr){
+  const d = new Date(dtStr);
+  return d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00';
+}
+
+function escapeICS(str){
+  return String(str).replace(/[\\,;]/g, '\\$&').replace(/\n/g, '\\n');
+}
+
+function downloadICS(ev){
+  const now = new Date();
+  const stamp = now.getFullYear() + pad(now.getMonth()+1) + pad(now.getDate()) + 'T' + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + 'Z';
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Blitz and Glitz//Committee Hub//EN',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:' + now.getTime() + '-bgcommittee@blitzandglitz',
+    'DTSTAMP:' + stamp,
+    'DTSTART:' + toICSDate(ev.start),
+    'DTEND:' + toICSDate(ev.end),
+    'SUMMARY:' + escapeICS(ev.title),
+    'DESCRIPTION:' + escapeICS(ev.description || ''),
+    'LOCATION:' + escapeICS(ev.location || ''),
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ];
+  const ics = lines.join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = ev.title.replace(/[^a-z0-9]/gi, '_').slice(0, 60) + '.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+}
+
+function formatMeta(ev){
+  const s = new Date(ev.start);
+  const e = new Date(ev.end);
+  const opts = { hour: 'numeric', minute: '2-digit' };
+  const timeStr = s.toLocaleTimeString([], opts) + '–' + e.toLocaleTimeString([], opts);
+  return timeStr + (ev.location ? ' · ' + ev.location : '');
+}
+
+const container = document.getElementById('eventsContainer');
+
+if (!MEETINGS.length) {
+  container.innerHTML = '<div class="empty-note">No meetings scheduled yet. Ask Claude to add one, or edit the MEETINGS list in this file.</div>';
+} else {
+  MEETINGS.sort(function(a, b){ return new Date(a.start) - new Date(b.start); });
+  MEETINGS.forEach(function(ev, i){
+    const s = new Date(ev.start);
+    const card = document.createElement('div');
+    card.className = 'event-card';
+    if (ev.placeholder) card.style.opacity = '0.7';
+    card.innerHTML = `
+      <div class="event-date">
+        <div class="mon">${MONTHS[s.getMonth()]}</div>
+        <div class="day">${s.getDate()}</div>
+      </div>
+      <div class="event-body">
+        <div class="event-title">${ev.title}</div>
+        <div class="event-meta">${formatMeta(ev)}</div>
+      </div>
+      <button class="event-btn" data-idx="${i}">Add to Calendar</button>
+    `;
+    card.querySelector('.event-btn').addEventListener('click', function(){ downloadICS(ev); });
+    container.appendChild(card);
+  });
+}
+</script>
+</body>
+</html>

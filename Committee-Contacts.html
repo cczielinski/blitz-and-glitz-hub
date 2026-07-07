@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blitz &amp; Glitz — Committee Contacts &amp; Calendar (Internal)</title>
+
+<!--
+========================================================================
+  INTERNAL COMMITTEE TOOL — DO NOT PUBLISH TO THE PUBLIC WEBSITE
+========================================================================
+  This page contains real committee member cell phone numbers. Keep it
+  private (share the file directly, or host behind a password) — do not
+  link it from the public Blitz & Glitz site.
+
+  HOW IT WORKS:
+  1. Fill in the meeting fields (title, date, time, location) and click
+     "Generate Invite".
+  2. Click "Add to My Calendar" to save it to your own phone/computer.
+  3. Below, each committee member gets a "Text Invite" button that opens
+     your Messages app with their number and the meeting details already
+     filled in — review and hit send, one at a time.
+========================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+  :root{
+    --butter:#FBF1C2;
+    --champagne:#F3E4CC;
+    --pink:#F8D7DD;
+    --gold:#C0982E;
+    --gold-soft:#CBB079;
+    --ink:#4a3f2e;
+    --ink-soft:#7a6f5c;
+    --white:#fffdf8;
+    --forest:#4A5A3D;
+    --border:#EAE0D0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;font-family:'Poppins',sans-serif;color:var(--ink);
+    background:linear-gradient(135deg,var(--butter) 0%,var(--champagne) 45%,var(--pink) 100%);
+    background-attachment:fixed;padding:28px 16px 60px;line-height:1.6;
+  }
+  .wrap{max-width:880px;margin:0 auto;}
+
+  .warn{
+    background:#FDECEC;border:1px solid #E8A9A9;color:#7A2E2E;
+    border-radius:10px;padding:14px 18px;font-size:13px;margin-bottom:20px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .warn b{display:block;font-size:13.5px;margin-bottom:2px;}
+
+  .card{
+    background:var(--white);border-radius:18px;
+    box-shadow:0 18px 50px rgba(120,100,60,.16);
+    border:1px solid rgba(192,152,46,.25);overflow:hidden;margin-bottom:20px;
+  }
+  .hero{
+    text-align:center;padding:38px 30px 30px;
+    background:linear-gradient(180deg,var(--champagne) 0%,var(--white) 100%);
+    border-bottom:2px solid var(--gold-soft);
+  }
+  .eyebrow{letter-spacing:.32em;text-transform:uppercase;font-size:11.5px;font-weight:600;color:var(--gold);margin:0 0 8px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:34px;margin:0;color:var(--ink);font-weight:700;}
+  .hero h1 .amp{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;}
+  .hero .sub{margin:12px auto 0;max-width:560px;font-size:14px;color:var(--ink-soft);}
+
+  .section-title{font-family:'Playfair Display',serif;font-weight:600;font-size:19px;color:var(--ink);padding:22px 26px 4px;}
+  .section-sub{font-size:12.5px;color:var(--ink-soft);padding:0 26px 14px;}
+
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 26px 20px;}
+  .form-grid .full{grid-column:1 / -1;}
+  label{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:600;}
+  input[type=text], input[type=date], input[type=time], textarea{
+    width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;
+    font-family:'Poppins';font-size:13.5px;color:var(--ink);background:#fffefb;
+  }
+  textarea{resize:vertical;min-height:54px;}
+  input:focus, textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(192,152,46,.15);}
+
+  .btn-row{display:flex;gap:12px;padding:4px 26px 24px;flex-wrap:wrap;}
+  .btn{
+    text-decoration:none;font-family:'Poppins';font-weight:600;font-size:13px;
+    color:#fff;background:linear-gradient(135deg,var(--gold) 0%,#a8801f 100%);
+    padding:11px 20px;border-radius:999px;white-space:nowrap;border:none;cursor:pointer;
+    box-shadow:0 6px 14px rgba(168,128,31,.28);transition:transform .12s;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn.secondary{background:var(--forest);box-shadow:0 6px 14px rgba(74,90,61,.28);}
+  .invite-preview{margin:0 26px 22px;background:#F8F5F0;border:1px dashed var(--border);border-radius:10px;padding:14px 16px;font-size:12.5px;color:var(--ink-soft);display:none;}
+
+  .toolbar{
+    display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    padding:18px 26px;border-bottom:1px solid var(--border);background:#FBF9F5;
+  }
+  .toolbar .count{font-size:13px;color:var(--ink-soft);}
+  .toolbar input[type=search]{
+    flex:1;min-width:200px;max-width:340px;padding:10px 14px;border-radius:999px;
+    border:1px solid var(--border);font-family:'Poppins';font-size:13.5px;color:var(--ink);
+  }
+  .toolbar input[type=search]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(192,152,46,.15);}
+
+  .group-label{
+    padding:16px 26px 6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;
+  }
+  .list{padding:0 26px 20px;}
+  .row{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:14px 4px;border-bottom:1px solid var(--border);
+  }
+  .row:last-child{border-bottom:none;}
+  .who{min-width:0;}
+  .name{font-family:'Playfair Display',serif;font-weight:600;font-size:15.5px;color:var(--ink);}
+  .meta{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .row-btns{display:flex;gap:8px;flex:none;}
+  .row-btns .btn{padding:8px 16px;font-size:12px;}
+  .no-phone{font-size:12px;color:#b8722f;font-style:italic;}
+
+  footer{text-align:center;padding:20px;font-size:12px;color:var(--ink-soft);}
+
+  @media(max-width:560px){
+    .hero h1{font-size:26px;}
+    .form-grid{grid-template-columns:1fr;}
+    .row{flex-direction:column;align-items:flex-start;gap:10px;}
+    .row-btns{align-self:stretch;}
+    .row-btns .btn{flex:1;text-align:center;}
+    .toolbar{flex-direction:column;align-items:stretch;}
+    .toolbar input[type=search]{max-width:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="warn">
+    <span>🔒</span>
+    <div><b>Internal committee tool — contains real phone numbers.</b> Do not publish this page or link it from the public website. Share it privately with committee leadership only.</div>
+  </div>
+
+  <div class="card">
+    <div class="hero">
+      <p class="eyebrow">Committee Contacts &amp; Calendar</p>
+      <h1>Blitz <span class="amp">&amp;</span> Glitz</h1>
+      <p class="sub">Schedule a meeting, add it to your own calendar, and text the invite to committee members — one tap at a time, works on iPhone and Android.</p>
+    </div>
+
+    <p class="section-title">Schedule a meeting</p>
+    <p class="section-sub">Fill this in, then generate the invite below.</p>
+    <div class="form-grid">
+      <div class="full">
+        <label>Meeting title</label>
+        <input type="text" id="mTitle" placeholder="e.g. Committee Planning Meeting" value="Blitz &amp; Glitz Committee Meeting">
+      </div>
+      <div>
+        <label>Date</label>
+        <input type="date" id="mDate">
+      </div>
+      <div>
+        <label>Start time</label>
+        <input type="time" id="mStart" value="18:00">
+      </div>
+      <div>
+        <label>End time</label>
+        <input type="time" id="mEnd" value="19:00">
+      </div>
+      <div>
+        <label>Location</label>
+        <input type="text" id="mLocation" placeholder="e.g. One Preston, Gunter TX">
+      </div>
+      <div class="full">
+        <label>Notes (optional)</label>
+        <textarea id="mNotes" placeholder="Anything to mention in the invite"></textarea>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="generateInvite()">Generate Invite</button>
+      <button class="btn secondary" onclick="addToMyCalendar()">Add to My Calendar</button>
+    </div>
+    <div class="invite-preview" id="invitePreview"></div>
+  </div>
+
+  <div class="card">
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search a name or grade…" oninput="filterList()">
+      <span class="count" id="count"></span>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+
+  <footer>Blitz &amp; Glitz &middot; Sunday, August 23, 2026 &middot; One Preston, Gunter, TX</footer>
+</div>
+
+<script>
+  // ---- Committee roster (name, role/grade group, phone) ----
+  const roster = [
+    { group: "Board", name: "Christina Zielinski", role: "Director", phone: "+12145491282" },
+    { group: "Board", name: "Kaeley Duncan", role: "Board", phone: "+14694697666" },
+    { group: "Board", name: "Valerie Standridge", role: "Board", phone: "+18172530760" },
+    { group: "Board", name: "Melinda Peacock", role: "Board", phone: "+19038164049" },
+    { group: "Board", name: "Crissy Bolt", role: "Board", phone: "+19726723734" },
+    { group: "Board", name: "Brooke Overman", role: "Board", phone: "+12147074560" },
+
+    { group: "12th Grade", name: "Ruby Valenzuela", role: "12th Grade", phone: "" },
+    { group: "12th Grade", name: "Lucy Puga", role: "12th Grade", phone: "" },
+
+    { group: "11th Grade", name: "Allison Gutschlag", role: "11th Grade", phone: "+12147894536" },
+    { group: "11th Grade", name: "Mickey Gunn", role: "11th Grade", phone: "+12144788067" },
+
+    { group: "10th Grade", name: "Erika Hallock", role: "10th Grade", phone: "+12149015788" },
+    { group: "10th Grade", name: "Cindy Hill", role: "10th Grade", phone: "+12092758983" },
+    { group: "10th Grade", name: "Melanie Vest", role: "10th Grade", phone: "+19404531135" },
+
+    { group: "9th Grade", name: "Gara Little", role: "9th Grade", phone: "+19729784408" },
+
+    { group: "8th Grade", name: "Jamie Kimball", role: "8th Grade", phone: "+19728963002" },
+
+    { group: "7th Grade", name: "Nicki Fletcher", role: "7th Grade", phone: "+14694529109" },
+    { group: "7th Grade", name: "Charissa Foster", role: "7th Grade", phone: "+19729790444" },
+
+    { group: "Alumni Chair", name: "Melinda Peacock", role: "Alumni Chair", phone: "+19038164049" },
+  ];
+
+  const GROUP_ORDER = ["Board", "12th Grade", "11th Grade", "10th Grade", "9th Grade", "8th Grade", "7th Grade", "Alumni Chair"];
+
+  // ---- Invite state ----
+  let currentInvite = null; // { title, location, notes, startISO, endISO, message }
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function fmtDateLong(dateStr){
+    if(!dateStr) return '';
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+  }
+
+  function fmtTime12(t){
+    if(!t) return '';
+    const [h, m] = t.split(':').map(Number);
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12 = ((h + 11) % 12) + 1;
+    return h12 + ':' + pad(m) + ' ' + ampm;
+  }
+
+  function generateInvite(){
+    const title = document.getElementById('mTitle').value.trim() || 'Blitz & Glitz Committee Meeting';
+    const date = document.getElementById('mDate').value;
+    const start = document.getElementById('mStart').value || '18:00';
+    const end = document.getElementById('mEnd').value || '19:00';
+    const location = document.getElementById('mLocation').value.trim();
+    const notes = document.getElementById('mNotes').value.trim();
+
+    if(!date){
+      alert('Please choose a date for the meeting first.');
+      return;
+    }
+
+    const startISO = date + 'T' + start;
+    const endISO = date + 'T' + end;
+
+    let message = title + ' — ' + fmtDateLong(date) + ', ' + fmtTime12(start) + '–' + fmtTime12(end);
+    if(location) message += ' at ' + location;
+    if(notes) message += '. ' + notes;
+    message += '. — Blitz & Glitz Committee';
+
+    currentInvite = { title, location, notes, startISO, endISO, message };
+
+    const preview = document.getElementById('invitePreview');
+    preview.style.display = 'block';
+    preview.innerHTML = '<b style="color:#4A5A3D;">Invite message preview:</b><br>' + message;
+
+    render(document.getElementById('search').value); // refresh Text Invite buttons with new message
+  }
+
+  function escapeICS(str){
+    return String(str || '').replace(/[\\,;]/g, '\\$&').replace(/\n/g, '\\n');
+  }
+
+  function toICSDate(dtStr){
+    const d = new Date(dtStr);
+    return d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + 'T' + pad(d.getHours()) + pad(d.getMinutes()) + '00';
+  }
+
+  function addToMyCalendar(){
+    if(!currentInvite){
+      generateInvite();
+      if(!currentInvite) return;
+    }
+    const ev = currentInvite;
+    const now = new Date();
+    const stamp = now.getFullYear() + pad(now.getMonth()+1) + pad(now.getDate()) + 'T' + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + 'Z';
+    const lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Blitz and Glitz//Committee Hub//EN',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      'UID:' + now.getTime() + '-bgcommittee@blitzandglitz',
+      'DTSTAMP:' + stamp,
+      'DTSTART:' + toICSDate(ev.startISO),
+      'DTEND:' + toICSDate(ev.endISO),
+      'SUMMARY:' + escapeICS(ev.title),
+      'DESCRIPTION:' + escapeICS(ev.notes),
+      'LOCATION:' + escapeICS(ev.location),
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ];
+    const ics = lines.join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = ev.title.replace(/[^a-z0-9]/gi, '_').slice(0, 60) + '.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+  }
+
+  function defaultMessage(){
+    return "Hi! It's the Blitz & Glitz committee. We'll share meeting details here soon.";
+  }
+
+  function render(filterText){
+    const list = document.getElementById('list');
+    const q = (filterText || '').trim().toLowerCase();
+    list.innerHTML = '';
+    let shown = 0;
+
+    GROUP_ORDER.forEach(function(groupName){
+      const members = roster.filter(function(m){
+        if(m.group !== groupName) return false;
+        const full = (m.name + ' ' + m.role).toLowerCase();
+        if(q && full.indexOf(q) === -1) return false;
+        return true;
+      });
+      if(!members.length) return;
+
+      const label = document.createElement('div');
+      label.className = 'group-label';
+      label.textContent = groupName;
+      list.appendChild(label);
+
+      members.forEach(function(m){
+        shown++;
+        const row = document.createElement('div');
+        row.className = 'row';
+        const msg = currentInvite ? currentInvite.message : defaultMessage();
+        let actions = '<span class="no-phone">No number on file</span>';
+        if(m.phone){
+          actions =
+            '<a class="btn secondary" href="tel:' + m.phone + '">Call</a>' +
+            '<a class="btn" target="_blank" href="sms:' + m.phone + '?body=' + encodeURIComponent(msg) + '">Text Invite</a>';
+        }
+        row.innerHTML =
+          '<div class="who">' +
+            '<div class="name">' + m.name + '</div>' +
+            '<div class="meta">' + m.role + (m.phone ? ' &middot; ' + m.phone.replace('+1','') : '') + '</div>' +
+          '</div>' +
+          '<div class="row-btns">' + actions + '</div>';
+        list.appendChild(row);
+      });
+    });
+
+    document.getElementById('count').textContent = shown + ' of ' + roster.length + ' committee members';
+  }
+
+  function filterList(){
+    render(document.getElementById('search').value);
+  }
+
+  render('');
+</script>
+</body>
+</html>
