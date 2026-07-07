@@ -23,11 +23,28 @@
   footer{background:#4A5A3D;color:#E8EDDF;text-align:center;padding:24px 22px;}
 
   .sub-card{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:22px 24px;box-shadow:0 8px 24px rgba(74,90,61,.06);}
-  .sub-btn{display:inline-flex;align-items:center;gap:8px;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:12px 22px;font-size:13.5px;font-weight:400;letter-spacing:.03em;cursor:pointer;text-decoration:none;font-family:'Poppins',sans-serif;}
+  .sub-btn{display:inline-flex;align-items:center;gap:8px;background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:400;letter-spacing:.03em;cursor:pointer;text-decoration:none;font-family:'Poppins',sans-serif;}
   .sub-btn:hover{background:#3a4830;}
   .sub-btn.secondary{background:#fff;color:#4A5A3D;border:1px solid #B36A73;}
+  .sub-btn.small{padding:9px 16px;font-size:12px;}
   .platform-steps{font-size:12.5px;color:#8A9A7A;margin-top:4px;}
   .platform-steps b{color:#4A5A3D;font-weight:500;}
+
+  .agenda{display:flex;flex-direction:column;gap:12px;}
+  .agenda-card{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:18px 20px;box-shadow:0 8px 24px rgba(74,90,61,.05);display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+  .agenda-card.event-day{border-color:#829840;background:linear-gradient(90deg,#F7F9F2,#fff);}
+  .agenda-date{flex:none;width:70px;text-align:center;background:#F8F5F0;border-radius:6px;padding:9px 4px;}
+  .agenda-card.event-day .agenda-date{background:#829840;color:#fff;}
+  .agenda-date .mon{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:#B36A73;font-weight:500;}
+  .agenda-card.event-day .agenda-date .mon{color:#EDE688;}
+  .agenda-date .day{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;line-height:1.1;}
+  .agenda-body{flex:1;min-width:180px;}
+  .agenda-title{font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:#4A5A3D;margin:0 0 3px;}
+  .agenda-meta{font-size:12.5px;color:#8A9A7A;}
+  .agenda-actions{display:flex;gap:8px;flex:none;flex-wrap:wrap;}
+  .agenda-btn{background:#4A5A3D;color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:12px;font-weight:400;cursor:pointer;text-decoration:none;font-family:'Poppins',sans-serif;white-space:nowrap;}
+  .agenda-btn.text{background:#B36A73;}
+  .agenda-btn:hover{opacity:.9;}
 
   .cal-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   .cal-month{background:#fff;border:1px solid #EAE0D0;border-radius:8px;padding:18px 20px 20px;box-shadow:0 8px 24px rgba(74,90,61,.05);}
@@ -40,10 +57,15 @@
   .cal-cell.today{background:#EDE688;font-weight:600;box-shadow:inset 0 0 0 1.5px #9C854A;}
   .cal-cell.meeting{background:#F2C6D1;font-weight:500;}
   .cal-cell.event-day{background:#829840;color:#fff;font-weight:700;box-shadow:0 4px 10px rgba(130,152,64,.4);}
-  .cal-dot{width:4px;height:4px;border-radius:999px;background:#B36A73;position:absolute;bottom:3px;}
   .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:#8A9A7A;margin-top:14px;}
   .legend span{display:inline-flex;align-items:center;gap:5px;}
   .legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+
+  .section-label{letter-spacing:.26em;text-transform:uppercase;font-size:9.5px;color:#829840;margin:0 0 10px;}
+
+  @media(max-width:700px){
+    .cal-wrap{grid-template-columns:1fr;}
+  }
 </style>
 <link rel="stylesheet" href="responsive.css">
 </head>
@@ -111,34 +133,19 @@
   <div style="max-width:1060px;margin:0 auto;">
     <p style="letter-spacing:.36em;text-transform:uppercase;font-size:11px;font-weight:400;color:#829840;margin:0 0 14px;">Committee &amp; Team Reference</p>
     <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:38px;line-height:1.02;margin:0;color:#4A5A3D;">Calendar</h1>
-    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#8A9A7A;">Committee meetings and working sessions, at a glance, through the event on August 23.</p>
+    <p style="max-width:640px;margin:16px 0 0;font-size:15.5px;color:#8A9A7A;">Committee meetings and working sessions, listed below and at a glance, through the event on August 23.</p>
   </div>
 </header>
 
-<!-- SUBSCRIBE -->
+<!-- AGENDA LIST -->
 <section style="max-width:1060px;margin:0 auto;padding:30px 30px 0;">
-  <div class="sub-card">
-    <p style="letter-spacing:.26em;text-transform:uppercase;font-size:9.5px;color:#829840;margin:0 0 10px;">Recommended</p>
-    <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:20px;margin:0 0 8px;color:#4A5A3D;">Subscribe once, stay in sync automatically</h2>
-    <p style="font-size:13.5px;color:#8A9A7A;margin:0 0 16px;max-width:640px;">Subscribing adds this calendar to your phone permanently. Any meeting the committee adds later shows up on your calendar on its own &mdash; no need to tap "add" every time.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
-      <a class="sub-btn" href="webcal://YOURDOMAIN.com/calendar.ics">Subscribe (iPhone / Apple Calendar)</a>
-      <a class="sub-btn secondary" href="https://calendar.google.com/calendar/r?cid=https://YOURDOMAIN.com/calendar.ics">Subscribe (Google Calendar)</a>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div class="platform-steps">
-        <b>iPhone:</b> tap "Subscribe (iPhone)" above &rarr; Settings will offer to add it as a subscribed calendar &rarr; Add. (Or: Settings &rarr; Calendar &rarr; Accounts &rarr; Add Account &rarr; Other &rarr; Add Subscribed Calendar &rarr; paste the link below.)
-      </div>
-      <div class="platform-steps">
-        <b>Android / Google Calendar:</b> tap "Subscribe (Google Calendar)" above, or on desktop go to Google Calendar &rarr; Other calendars (+) &rarr; From URL &rarr; paste the link below.
-      </div>
-    </div>
-    <p style="font-size:11.5px;color:#A9AE97;margin:14px 0 0;word-break:break-all;">Direct link: https://YOURDOMAIN.com/calendar.ics <span style="color:#b8722f;">(update YOURDOMAIN.com once the site is live at its real address)</span></p>
-  </div>
+  <p class="section-label">Upcoming</p>
+  <div class="agenda" id="agendaList"><!-- Populated by JS --></div>
 </section>
 
 <!-- AT-A-GLANCE CALENDAR -->
-<section style="max-width:1060px;margin:0 auto;padding:26px 30px 10px;">
+<section style="max-width:1060px;margin:0 auto;padding:30px 30px 0;">
+  <p class="section-label">At a glance</p>
   <div class="cal-wrap" id="calWrap"><!-- Populated by JS --></div>
   <div class="legend">
     <span><i style="background:#829840;"></i> Blitz &amp; Glitz event day</span>
@@ -147,10 +154,24 @@
   </div>
 </section>
 
+<!-- SUBSCRIBE -->
+<section style="max-width:1060px;margin:0 auto;padding:30px 30px 0;">
+  <div class="sub-card">
+    <p class="section-label" style="margin-bottom:8px;">Optional &mdash; once the site is live online</p>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:600;font-size:19px;margin:0 0 8px;color:#4A5A3D;">Subscribe once, stay in sync automatically</h2>
+    <p style="font-size:13.5px;color:#8A9A7A;margin:0 0 14px;max-width:660px;">This requires the site to be hosted at a real web address first (it isn't yet). A <b style="color:#4A5A3D;">Netlify</b> address (e.g. <i>blitz-and-glitz-hub.netlify.app</i>) absolutely counts &mdash; so does GitHub Pages, since this project already has a GitHub repo. Either way, once you have that address, tell Claude the URL and it'll wire up the subscribe links below and the calendar.ics feed automatically.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px;">
+      <a class="sub-btn small" href="webcal://YOURDOMAIN.com/calendar.ics">Subscribe (iPhone)</a>
+      <a class="sub-btn secondary small" href="https://calendar.google.com/calendar/r?cid=https://YOURDOMAIN.com/calendar.ics">Subscribe (Google Calendar)</a>
+    </div>
+    <p style="font-size:11px;color:#A9AE97;margin:0;">Not live yet, so these links won't work until YOURDOMAIN.com is replaced with your real site address.</p>
+  </div>
+</section>
+
 <!-- HOW TO ADD MORE -->
-<section style="max-width:1060px;margin:0 auto;padding:10px 30px 40px;">
+<section style="max-width:1060px;margin:0 auto;padding:20px 30px 40px;">
   <div style="border-top:1px solid #EAE0D0;padding-top:18px;font-size:12.5px;color:#A9AE97;">
-    Need a meeting added? Just tell Claude the date, time, and location (e.g. &ldquo;add a committee meeting Aug 12 at 6pm at the school library&rdquo;) &mdash; it'll show up on this calendar and sync automatically to anyone subscribed.
+    Need a meeting added or changed? Just tell Claude the date, time, and location (e.g. &ldquo;add a committee meeting Aug 12 at 6pm at the school library&rdquo;) &mdash; it'll show up in the list and grid above.
   </div>
 </section>
 
@@ -162,18 +183,117 @@
 
 <script>
 // ============================================================
-// MEETINGS — edit this list to add/change events shown on the
-// grid below. Keep calendar.ics (the subscribe feed) in sync
-// with this list — ask Claude to update both together.
+// MEETINGS — edit this list to add/change events shown in the
+// agenda list and grid below. Keep calendar.ics (the subscribe
+// feed) in sync with this list — ask Claude to update both.
 // ============================================================
 const MEETINGS = [
-  { date: "2026-07-08", title: "GiveSmart Meeting — Kaeley Duncan & Chris Zielinski" }
+  { date: "2026-07-08", start: "08:00", end: "09:00", title: "GiveSmart Meeting", location: "", notes: "Kaeley Duncan & Chris Zielinski" }
 ];
-const EVENT_DAY = "2026-08-23"; // Blitz & Glitz
+const EVENT_DAY = {
+  date: "2026-08-23",
+  title: "Blitz & Glitz — Ladies Night Out",
+  location: "One Preston, Gunter, TX"
+};
 
 const DOW = ["S","M","T","W","T","F","S"];
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const today = new Date(); today.setHours(0,0,0,0);
 
+function pad(n){ return n < 10 ? '0' + n : '' + n; }
+function todayISO(){ return today.getFullYear() + '-' + pad(today.getMonth()+1) + '-' + pad(today.getDate()); }
+
+function fmtTime12(t){
+  if(!t) return '';
+  const [h, m] = t.split(':').map(Number);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const h12 = ((h + 11) % 12) + 1;
+  return h12 + (m ? ':' + pad(m) : '') + ' ' + ampm;
+}
+
+function escapeICS(str){
+  return String(str || '').replace(/[\\,;]/g, '\\$&').replace(/\n/g, '\\n');
+}
+function toICSDateTime(dateStr, timeStr){
+  return dateStr.replace(/-/g,'') + 'T' + timeStr.replace(':','') + '00';
+}
+
+function downloadICS(ev){
+  const now = new Date();
+  const stamp = now.getFullYear() + pad(now.getMonth()+1) + pad(now.getDate()) + 'T' + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds()) + 'Z';
+  let lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Blitz and Glitz//Committee Hub//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT',
+    'UID:' + now.getTime() + '-bgcommittee@blitzandglitz','DTSTAMP:' + stamp];
+  if (ev.allDay) {
+    const d = ev.date.replace(/-/g,'');
+    const nextDay = new Date(ev.date + 'T00:00:00'); nextDay.setDate(nextDay.getDate()+1);
+    const d2 = nextDay.getFullYear() + pad(nextDay.getMonth()+1) + pad(nextDay.getDate());
+    lines.push('DTSTART;VALUE=DATE:' + d, 'DTEND;VALUE=DATE:' + d2);
+  } else {
+    lines.push('DTSTART:' + toICSDateTime(ev.date, ev.start), 'DTEND:' + toICSDateTime(ev.date, ev.end));
+  }
+  lines.push('SUMMARY:' + escapeICS(ev.title));
+  if (ev.location) lines.push('LOCATION:' + escapeICS(ev.location));
+  if (ev.notes) lines.push('DESCRIPTION:' + escapeICS(ev.notes));
+  lines.push('END:VEVENT','END:VCALENDAR');
+
+  const ics = lines.join('\r\n');
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = ev.title.replace(/[^a-z0-9]/gi, '_').slice(0, 60) + '.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+}
+
+function textMeeting(ev){
+  let msg = ev.title;
+  const d = new Date(ev.date + 'T00:00:00');
+  msg += ' — ' + d.toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric' });
+  if (!ev.allDay) msg += ', ' + fmtTime12(ev.start) + '–' + fmtTime12(ev.end);
+  if (ev.location) msg += ' at ' + ev.location;
+  if (ev.notes) msg += '. ' + ev.notes;
+  msg += ' — Blitz & Glitz Committee';
+  window.location.href = 'sms:?body=' + encodeURIComponent(msg);
+}
+
+// ---- Build agenda list ----
+const allEvents = MEETINGS.map(m => Object.assign({ allDay: false }, m))
+  .concat([Object.assign({ allDay: true }, EVENT_DAY)])
+  .sort((a,b) => new Date(a.date) - new Date(b.date));
+
+const agenda = document.getElementById('agendaList');
+if (!allEvents.length) {
+  agenda.innerHTML = '<div style="background:#F8F5F0;border:1px dashed #D5C9B3;border-radius:8px;padding:20px;text-align:center;color:#8A9A7A;font-size:13px;">No meetings scheduled yet.</div>';
+} else {
+  allEvents.forEach(function(ev){
+    const d = new Date(ev.date + 'T00:00:00');
+    const card = document.createElement('div');
+    card.className = 'agenda-card' + (ev.date === EVENT_DAY.date && ev.title === EVENT_DAY.title ? ' event-day' : '');
+    let metaStr = ev.allDay ? 'All day' : (fmtTime12(ev.start) + '–' + fmtTime12(ev.end));
+    if (ev.location) metaStr += ' · ' + ev.location;
+    if (ev.notes) metaStr += ' · ' + ev.notes;
+    card.innerHTML = `
+      <div class="agenda-date"><div class="mon">${MONTHS[d.getMonth()]}</div><div class="day">${d.getDate()}</div></div>
+      <div class="agenda-body">
+        <div class="agenda-title">${ev.title}</div>
+        <div class="agenda-meta">${metaStr}</div>
+      </div>
+      <div class="agenda-actions">
+        <button class="agenda-btn">Add to Calendar</button>
+        <button class="agenda-btn text">Text This</button>
+      </div>
+    `;
+    const btns = card.querySelectorAll('.agenda-btn');
+    btns[0].addEventListener('click', function(){ downloadICS(ev); });
+    btns[1].addEventListener('click', function(){ textMeeting(ev); });
+    agenda.appendChild(card);
+  });
+}
+
+// ---- Build month grid ----
 function buildMonth(year, monthIndex0, lastDay){
   const first = new Date(year, monthIndex0, 1);
   const startOffset = first.getDay();
@@ -185,24 +305,20 @@ function buildMonth(year, monthIndex0, lastDay){
 
   for (let d = 1; d <= daysInMonth; d++) {
     const cellDate = new Date(year, monthIndex0, d);
-    const iso = year + '-' + String(monthIndex0+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const iso = year + '-' + pad(monthIndex0+1) + '-' + pad(d);
     let cls = 'cal-cell';
-    let dot = '';
     if (cellDate < today) cls += ' past';
     if (iso === todayISO()) cls += ' today';
-    if (iso === EVENT_DAY) cls += ' event-day';
-    else if (MEETINGS.some(m => m.date === iso)) { cls += ' meeting'; }
-    cells += '<div class="' + cls + '" title="' + (MEETINGS.filter(m=>m.date===iso).map(m=>m.title).join(', ')) + '">' + d + dot + '</div>';
+    if (iso === EVENT_DAY.date) cls += ' event-day';
+    else if (MEETINGS.some(m => m.date === iso)) cls += ' meeting';
+    const titles = MEETINGS.filter(m=>m.date===iso).map(m=>m.title).concat(iso===EVENT_DAY.date ? [EVENT_DAY.title] : []).join(', ');
+    cells += '<div class="' + cls + '" title="' + titles + '">' + d + '</div>';
   }
 
   return '<div class="cal-month"><h3>' + monthName + ' ' + year + '</h3><div class="cal-grid">' +
     DOW.map(d => '<div class="cal-dow">' + d + '</div>').join('') +
     cells +
     '</div></div>';
-}
-
-function todayISO(){
-  return today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
 }
 
 document.getElementById('calWrap').innerHTML =
