@@ -42,4 +42,12 @@ SUMMARY:Committee Meeting
 LOCATION:228 Bledsoe Road\, Gunter\, TX
 DESCRIPTION:Chris Zielinski's house — for GPS\, use 218 Bledsoe Road (property entrance)\, then follow the gravel road 1/4 mile to 228.
 END:VEVENT
+BEGIN:VEVENT
+UID:meeting-eventsetup-2026-08-23@blitzandglitz
+DTSTAMP:20260712T214315Z
+DTSTART:20260823T133000
+DTEND:20260823T153000
+SUMMARY:Event Set Up
+LOCATION:One Preston\, Gunter\, TX
+END:VEVENT
 END:VCALENDAR
