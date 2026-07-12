@@ -33,4 +33,13 @@ SUMMARY:B&G Committee Kick Off Meeting
 LOCATION:500 Cypress Point\, Gunter\, TX
 DESCRIPTION:Melinda Peacock's house — Alumni Chair
 END:VEVENT
+BEGIN:VEVENT
+UID:meeting-2026-07-29@blitzandglitz
+DTSTAMP:20260712T212402Z
+DTSTART:20260729T180000
+DTEND:20260729T190000
+SUMMARY:Committee Meeting
+LOCATION:228 Bledsoe Road\, Gunter\, TX
+DESCRIPTION:Chris Zielinski's house — for GPS\, use 218 Bledsoe Road (property entrance)\, then follow the gravel road 1/4 mile to 228.
+END:VEVENT
 END:VCALENDAR
