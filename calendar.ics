@@ -26,11 +26,11 @@ DESCRIPTION:Kaeley Duncan & Chris Zielinski
 END:VEVENT
 BEGIN:VEVENT
 UID:meeting-kickoff-2026-07-15@blitzandglitz
-DTSTAMP:20260707T213816Z
+DTSTAMP:20260712T191211Z
 DTSTART:20260715T180000
 DTEND:20260715T190000
 SUMMARY:B&G Committee Kick Off Meeting
-LOCATION:228 Bledsoe Road\, Gunter\, TX
-DESCRIPTION:Christina Zielinski's house — for GPS/directions\, use 218 Bledsoe Road instead of 228
+LOCATION:500 Cypress Point\, Gunter\, TX
+DESCRIPTION:Melinda Peacock's house — Alumni Chair
 END:VEVENT
 END:VCALENDAR

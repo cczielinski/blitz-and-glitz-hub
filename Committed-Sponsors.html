@@ -138,6 +138,12 @@
   <div id="levels"><!-- Populated by JS --></div>
 </section>
 
+<!-- SPECIAL EVENT SPONSORS -->
+<section style="max-width:1060px;margin:0 auto;padding:0 30px 10px;">
+  <p class="section-label" style="letter-spacing:.26em;text-transform:uppercase;font-size:9.5px;color:#829840;margin:0 0 10px;">Special &amp; In-Kind</p>
+  <div id="specialSponsors"><!-- Populated by JS --></div>
+</section>
+
 <!-- HOW TO ADD MORE -->
 <section style="max-width:1060px;margin:0 auto;padding:10px 30px 40px;">
   <div style="border-top:1px solid #EAE0D0;padding-top:18px;font-size:12.5px;color:#A9AE97;">
@@ -168,7 +174,20 @@ const LEVELS = [
 // status: "committed" | "paid" | "pending"
 // ============================================================
 const SPONSORS = [
-  // { name: "Business Name", level: "Tiger Pride Sponsor", contact: "", status: "committed", notes: "" },
+  { name: "Size Up Home Inspections", level: "Tiger Pride Sponsor", contact: "", status: "committed", notes: "Swag bag item: lip balm" },
+  { name: "Alexys Spagnola Realtor", level: "Touchdown in Tulle", contact: "", status: "committed", notes: "Swag bag item: megaphones" },
+];
+
+// ============================================================
+// SPECIAL EVENT SPONSORS — named/in-kind categories that sit
+// outside the standard dollar levels above (e.g. dinner, decor,
+// entertainment sponsors). Edit this list as those come in.
+// ============================================================
+const SPECIAL_SPONSORS = [
+  { category: "Bloom & Blitz Sponsor", name: "Peacock Petals" },
+  { category: "Kickoff Dinner Sponsor", name: "Camilo's" },
+  { category: "Red Carpet Sponsor", name: "LAND Party Rentals" },
+  { category: "Play-by-Play Sponsor", name: "Featuring Emily Jones", notes: "Sponsored by ProAd Marketing" },
 ];
 
 const levelsEl = document.getElementById('levels');
@@ -218,6 +237,32 @@ totalsEl.innerHTML = `
   <div class="total-card"><div class="num">$${totalDollars.toLocaleString()}</div><div class="lbl">Committed Value</div></div>
   <div class="total-card"><div class="num">${totalPaid}</div><div class="lbl">Paid In Full</div></div>
 `;
+
+// ---- Build special/in-kind sponsor blocks ----
+const specialEl = document.getElementById('specialSponsors');
+if (!SPECIAL_SPONSORS.length) {
+  specialEl.innerHTML = '<div class="empty-row">No special sponsors yet.</div>';
+} else {
+  SPECIAL_SPONSORS.forEach(function(s){
+    const block = document.createElement('div');
+    block.className = 'level-block';
+    block.innerHTML = `
+      <div class="level-head">
+        <span class="level-name">${s.category}</span>
+      </div>
+      <div class="level-body">
+        <div class="sponsor-row">
+          <div>
+            <div class="sponsor-name">${s.name}</div>
+            ${s.notes ? `<div class="sponsor-meta">${s.notes}</div>` : ''}
+          </div>
+          <span class="status-pill committed">Committed</span>
+        </div>
+      </div>
+    `;
+    specialEl.appendChild(block);
+  });
+}
 </script>
 </body>
 </html>
